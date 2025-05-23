@@ -1,0 +1,112 @@
+% chapters/01_introduction/ch01_intro.tex
+% Cleaned for inclusion in main.tex file
+
+\chapter{Introduction}
+
+\section{Background}
+
+Association football, also known as soccer, is a game played by two teams of 11 players each. Teams compete by advancing a ball into their opponent's goal, adhering to established rules that govern gameplay, player conduct, and scoring, with the aim to score more goals than their rivals \citep{memmert_data_2018, sumpter_soccermatics_2016}. Although the fundamental simplicity of football contributes significantly to its global popularity, the game simultaneously possesses incredible complexity characterised by movement patterns, match plans, playing philosophies, and creativity \citep{bornn_soccer_2018, vicente_why_2024}. These qualities are collectively referred to as football tactics \citep{memmert_data_2018}.
+
+Football tactics involve strategically positioning players on the field and co-ordinating their movements to maximise the chances of winning matches. This encompasses both the formation that a team adopts (that is, the spatial arrangement of players on the pitch) and their overall style of play \citep{wilson_inverting_2010}. Furthermore, \citet{rein_big_2016} describe football tactics as the actions and strategies implemented by a team and its players during a match to achieve specific goals, primarily winning the game. These actions are typically adaptations to dynamically changing situations in the match and the behaviour of the opposing team, managing space, time, and individual actions on the pitch.
+
+Fundamental to understanding these tactical deployments are the distinct player positions and the common tactical formations they operate within. 
+
+A critical component of these tactical deployments, especially in modern football, is a defensive tactic known as pressing. Pressing requires co-ordinated teamwork aimed at swiftly regaining possession through targeted defensive pressure on opponents to limit their spatial options and disrupt their offensive play. Pressing involves players actively closing down opponents who have the ball and blocking potential passing lanes \citep{borbely_all_2018}.
+
+Given the tactical importance of pressing, accurately measuring its effectiveness is essential. Recent advancements in data analytics and machine learning have accelerated the development of sophisticated metrics to achieve this \citep{link_data_2018, memmert_data_2018, rein_big_2016, rico-gonzalez_markel_machine_2023}. Data analytics has revolutionised the way football is understood today. While intuition and subjective observation once dominated, objective metrics and algorithms now offer deeper insights into performance, tactics, and outcomes \citep{memmert_data_2018}. Football analytics now rivals analytics in established sports like baseball, cricket, and basketball in sophistication and insight \citep{herold_machine_2019, rico-gonzalez_markel_machine_2023}. This data-driven revolution has encouraged deeper exploration into pressing as a vital tactical strategy.
+
+Pressing has emerged as a defining tactical element in modern football capable of transforming defence into attack and significantly influencing the flow and tempo of the game. Pressing disrupts opponents, forces turnovers, and creates goal-scoring opportunities, establishing itself as a cornerstone of contemporary football tactics \citep{robberechts_valuing_2019}.
+
+Effective pressing strategies, particularly high pressing styles, increase the likelihood of regaining possession in advanced areas of the pitch, enabling teams to capitalise on their opponents' disorganisation following a turnover \citep{brindescu_study_2021, fernandez-navarro_evaluating_2019, modric_influence_2023}. Research indicates high-pressing tactics can effectively limit the opponent's time on the ball, forcing hurried decisions and mistakes \citep{forcher_is_2023, low_porous_2021}. This can lead to a higher frequency of goal-scoring opportunities, as teams can exploit the spaces left by opponents who are caught out of position during pressing situations \citep{cooper_impact_2020, fernandes_how_2020}.
+
+Pressing fulfils a dual tactical role, enhancing defensive solidity and creating attacking opportunities. Nonetheless, its effectiveness strongly depends on players' physical capacities. Studies demonstrate that pressing frequently demands high-intensity running and quick recovery periods, significantly impacting physiological performance \citep{bortnik_mean_2022, ju_contextualised_2023}. The ability to maintain high levels of intensity during pressing phases is crucial, as it not only impacts the immediate success of regaining possession but also influences overall match performance \citep{carr_differences_2020, fernandez-navarro_evaluating_2019}. Teams sustaining effective pressing throughout a match tend to achieve superior results, maintaining pressure on opponents and creating more scoring chances \citep{liu_characterization_2024, modric_influence_2023}. However, variability exists in physical demands, with some studies noting decreased exertion due to tactical efficiency, while others note intensive physical requirements for certain positions \citep{low_exploring_2018, carr_differences_2020}.
+
+While the importance of pressing is established, its practical measurement faces challenges due to varying contextual factors, including opponent quality, tactical set-ups, match situations, and formations. Research suggests that pressing effectiveness varies with these situational variables, underscoring the need for adaptable strategies \citep{ruan_quantifying_2022, toda_evaluation_2022}. For instance, teams may choose to implement a more aggressive pressing strategy against weaker opponents while adopting a more conservative approach against stronger teams \citep{bauer_putting_2023, forcher_leander_is_2024}. In addition, formations such as 4-3-3 and 3-5-2 offer structural advantages, including improved spatial coverage and compactness, enabling coordinated defensive actions. High pressing within these formations creates larger attacking zones and increased entries into the final third, as demonstrated in league performances \citep{brindescu_study_2021, scotognella_simulations_2021}.
+
+\section{Research Problem}
+
+Pressing is a fundamental tactical component in football, influencing defensive solidity and offensive transitions. Several metrics exist to quantify pressing effectiveness, such as Passes Allowed Per Defensive Action (PPDA), Build-up Disruption Percentage (BDP), Defensive Action Expected Threat (DAxT), Generalised Ball Action Recovery (GABR), and Valuing Pressure Decisions by Estimating Probabilities (VPEP). However, these metrics have limitations in accounting for contextual factors such as formation shifts, pressing traps and pressing triggers, and possession-based outcomes.
+
+Most advanced pressing analyses require tracking data, which is not always freely available, making it difficult to evaluate pressing effectiveness comprehensively across different datasets. Given the availability of StatsBomb 360° data for select tournaments but only event data for others, this research seeks to develop new pressing evaluation models that work without tracking data, while still offering deep tactical insights into pressing effectiveness across different tactical formations and adjustments.
+
+\section{Research Aims and Objectives}
+
+This research aims to advance the analysis and understanding of pressing in football by developing robust metrics that integrate tactical context, spatial data, and offensive outcomes. Specifically, this study addresses three core objectives:
+\begin{enumerate}
+    \item \textbf{Enhance existing pressing metrics} by systematically reviewing and expanding upon established measures such as PPDA, BDP, DAxT, GABR, and VPEP. This enhancement will incorporate tactical dimensions like formation variations, pressing traps, pressing triggers, and outcomes related to possession value.
+    \item \textbf{Develop novel pressing effectiveness metrics} capable of functioning effectively in the absence of detailed tracking data. Leveraging widely available event-based datasets (StatsBomb, FBRef, WyScout, etc.), the metrics will be validated across multiple leagues and tournaments, including both men's and women's international and club competitions, ensuring their robustness and applicability in diverse contexts.
+    \item \textbf{Quantify the relationship between pressing effectiveness and offensive potential}, analysing how successful pressing translates into attacking opportunities through Expected Threat (xT) and Expected Goals (xG) chain analysis. This objective includes evaluating variations in pressing effectiveness across tactical formations and examining pressing trends and intensity differences among different competitive contexts.
+\end{enumerate}
+
+\section{Research Questions}
+
+This dissertation aims to address the following research questions:
+\begin{itemize}
+    \item How effectively do existing metrics (e.g., PPDA, BDP, GABR, DAxT, VPEP) quantify pressing, and what contextual limitations do they have?
+    \item How does pressing effectiveness vary across tactical formations, and what is the specific impact of pressing traps and triggers?
+    \item Bridges the gap between defensive pressing actions and offensive potential, integrating xT/xG chain analysis with pressing effectiveness.
+\end{itemize}
+
+
+\section{Relevance and Contributions}
+
+This study quantifies pressing effectiveness in football, exploring its impact on tactical formations using event-based data (and some tracking data), machine learning, and performance metrics to optimise defensive transitions.
+
+\subsection{Academic Contributions}
+
+\begin{itemize}
+    \item Enhances existing pressing models by incorporating formation-based contextual factors and linking pressing actions to possession-based outcomes.
+    \item Develops a pressing efficiency model that works without tracking data, enabling broader application in football analytics research.
+    \item Bridges the gap between defensive pressing actions and offensive potential, integrating xT/xG chain analysis with pressing effectiveness.
+\end{itemize}
+
+
+\subsection{Practical Contributions for Coaches, Analysts, and Scouts}
+
+\begin{itemize}
+    \item Provides a data-driven framework for evaluating pressing efficiency, which can be applied to tactical scouting and opponent analysis.
+    \item Offers insights into how different formations impact pressing success, helping teams optimise their defensive and transition strategies.
+    \item Enables clubs to assess pressing effectiveness using widely available event data, making tactical evaluations more accessible even without high-cost tracking systems.
+    \item Compares pressing trends across leagues and international tournaments, identifying macro-level tactical patterns that could inform team strategies.
+\end{itemize}
+
+\subsection{Scope and Limitations}
+
+\subsection{Scope}
+
+The study uses event-based as well as StatsBomb 360° data for pressing analysis for the following tournaments:
+\begin{itemize}
+    \item UEFA Men's European Football Championship 2020 and 2024
+    \item UEFA Women's Championship 2022
+    \item FIFA Men's World Cup 2022
+    \item FIFA Women's World Cup 2023
+    \item Bayer Leverkusen's unbeaten Bundesliga campaign in 2023/24.
+\end{itemize}
+
+This study considers the metrics: PPDA, DAxT, VPEP, GABR, high-intensity pressing sequences, and xT from pressing.
+
+Lastly, comparative analysis in the differences in pressing effectiveness across men's and women's football, club and international competitions, and top leagues and second-tier leagues is studied.
+
+\subsection{Limitations}
+
+The study utilises publicly available datasets, including the StatsBombR and worldfootballR packages, to analyse pressing metrics and their integration with team formations. While these datasets provide rich spatial and event data, limitations include a reliance on event-based metrics and a focus on selected leagues, tournaments, and formations.
+
+The study will need to approximate player positioning and defensive shape using event-based data, which lacks full spatial tracking. The validation of the new pressing model using test data (without tracking) may introduce approximation errors.
+
+Pressing success does not always translate to immediate attacking chances. The study aims to link pressing to xT/xG chains, but there may be lag effects where pressing create advantages several passes later.
+
+Differences in playing styles across competitions means that international tournaments may feature different pressing behaviours compared to league play, impacting comparability.
+
+\section{Conclusion}
+
+\subsection{Advancing Pressing Analytics with a Novel Approach}
+
+By expanding existing pressing metrics and incorporating formation context, pressing triggers and traps, and pressing-to-attack transition analysis, this study aims to provide new tactical insights into pressing effectiveness.
+
+\textbf{Key takeaways include:}
+\begin{itemize}
+    \item Develop an alternative pressing metric that does not require tracking data.
+    \item Assess pressing intensity across different formations and tournaments.
+    \item Link pressing success to offensive potential using xT/xG chains.
+    \item Provide a comparative analysis of pressing across multiple leagues and competitions.
+\end{itemize}

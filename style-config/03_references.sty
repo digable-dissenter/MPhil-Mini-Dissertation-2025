@@ -1,0 +1,23 @@
+\RequirePackage[
+    backend,
+    style=authoryear,
+    sorting=nyt,
+    maxcitenames=1,
+    uniquelist=false,
+    dashed=false,
+    natbib=true
+]{biblatex}
+
+\addbibresource{back-matter/bibliography/bibliography.bib}
+\setlength\bibitemsep{1.5\itemsep}
+\setlength\bibhang{0pt}
+
+% Hyperlink colours come colours.sty
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=maincolor,
+    citecolor=maincolor,
+    urlcolor=maincolor,
+    bookmarksnumbered
+}

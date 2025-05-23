@@ -1,0 +1,26 @@
+\RequirePackage{xparse,ifthen,etoolbox,hyperref}
+
+% === setters / getters ===
+\NewDocumentCommand{\FirstAuthor}{m}{\gdef\GetFirstAuthor{#1}}
+\NewDocumentCommand{\FirstAuthorStudentNumber}{m}{\gdef\GetFirstAuthorNumber{#1}}
+\NewDocumentCommand{\ThesisType}{m}{\gdef\GetThesisType{#1}}
+
+% Standard LaTeX title & date aliases
+\let\Title\title
+\newcommand\GetTitle{\@title}
+\let\Date\date
+\newcommand\GetDate{\@date}
+
+% Draft tag
+\NewDocumentCommand{\DocumentVersion}{m}{%
+    \gdef\GetDocumentVersion{\textit{Draft Version #1}}}
+
+% Inject into PDF metadata at end of preamble
+\AfterPreamble{%
+    \hypersetup{
+        pdfauthor=\GetFirstAuthor,
+        pdftitle=\GetTitle,
+        pdfproducer=LaTeX,
+        pdfcreator=XeLaTeX
+    }
+}

@@ -1,0 +1,16 @@
+\RequirePackage{minted}
+\RequirePackage{caption}
+\RequirePackage{float}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Listing,within=none}
+\captionsetup[listing]{position=above,skip=-4pt}
+
+\setminted{
+    frame=lines,framesep=2mm,baselinestretch=1.2,
+    fontsize=\footnoteside,linenos,tabsize=4,
+    breaklines,breakanywhere    
+}
+
+% Grey line numbers
+\renewcommand{\theFancyVerbLine}{\scriptsize\textcolor{gray}{\arabic{FancyVerbLine}}}

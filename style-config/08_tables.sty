@@ -1,0 +1,11 @@
+\RequirePackage{etoolbox,caption,enumitem}
+\newcommand{\@KenTableStyle}{\renewcommand\arraystretch{1.1}\small}
+
+\AtBeginEnvironment{tabular} {\@KenTableStyle}
+\AtBeginEnvironment{tabularx}{\@KenTableStyle}
+\preto\longtable             {\@KenTableStyle}
+
+\captionsetup{skip=6pt,labelfont={bf,small},textfont={it,small}}
+\captionsetup[table]{skip=4pt}
+
+\setlist{noitemsep}

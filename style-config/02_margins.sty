@@ -1,0 +1,26 @@
+\RequirePackage[
+    top     = 2.5cm,
+    bottom  = 2.5cm,
+    inner   = 3.15cm,
+    outer   = 3.15cm,
+    footskip= 1.6cm,
+    headsep = 0.75cm
+]{geometry}
+
+\addtolength{\textheight}{-20pt}
+
+\RequirePackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\ihead{\ifnum\value{section}=0\leftmark\else\rightmark\fi}
+\ohead{\leftmark}
+\cfoot*{\pagemark}
+\setheadsepline{.3pt}
+\setheadfootheight{20pt}
+
+% Draft-version footer
+\newcommand*\addDraftFooter{%
+    \ifdefined\GetDocumentVersion
+        \cfoot{\GetDocumentVersion - \textit{\today}}
+    \if
+}
+\addDraftFooter

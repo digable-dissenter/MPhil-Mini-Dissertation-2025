@@ -1,0 +1,24 @@
+% Dissertation Master File
+\documentclass[ twoside, 12pt, parskip=half ]{scrbook}
+
+% --- Packages and Formatting ---
+\usepackage{style-config/12_thesis}
+
+% --- Metadata ---
+\input{metadata/metadata}
+
+% --- Document Start ---
+\begin{document}
+\frontmatter
+\input{front-matter/01-front-page}
+\tableofcontents
+\listoffigures \\
+\listoftables \\
+\mainmatter
+% --- Introduction ---
+\input{chapters/01_introduction/ch01_intro}
+% --- Literature Review ---
+\input{chapters/02_literature-review/ch02_lit_review}
+\backmatter
+\printbibliography
+\end{document}

@@ -1,0 +1,20 @@
+\RequirePackage{tocbasic}
+\RequirePackage{etoolbox}
+\RequirePackage{xparse}
+\RequirePackage{hyperref}
+
+% Make LoF / LoT appear in TOC
+\DeclareTOCEntryType{frontmatter}{level=0,font=\itshape}
+\DeclareTOCEntryType{backmatter}{level=0,font=\itshape}
+
+\pretocmd{\listoffigures}{%
+    \addcontentsline{toc}{frontmatter}{\listfigurename}}{}{}
+\pretocmd{\listoftables}{%
+    \addcontentsline{toc}{frontmatter}{\listtablename}}{}{}
+{}{}
+
+% Glossary / acronyms
+\newcomman\glossarytoc{%
+    \addcontentsline{toc}{frontmatter}{\glossaryname}}
+\newcommand\acronymtoc{%
+    \addcontentsline{toc}{frontmatter}{\acronymname}}

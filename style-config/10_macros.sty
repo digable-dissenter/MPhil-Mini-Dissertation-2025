@@ -1,0 +1,13 @@
+\NeedsTexFormat{LaTeX2e}
+\ProvidesPackage{10_macros}{2025/05/22 high-level helpers}
+
+% --- School Logo Path ---
+\newcommand\LogoPath{figures/theme/logotypes/uct-logo.jpg}
+\NewDocumentCommand\SchoolLogoPath{s}{\LogoPath}
+
+% decide automatically
+\RequirePackage{ifthen}
+\@ifundefined{SchoolOption}{}{% default set in main class
+    \ifthenelse{\equal{\SchoolOption}{uctss}}
+    {\renewcommand\LogoPath{figures/theme/logotypes/uct-statistical-sci.png}}{}
+}

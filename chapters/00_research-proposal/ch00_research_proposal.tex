@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{multirow}
+\setmarginsrb{2.5 cm}{2 cm}{2.5 cm}{2 cm}{0.5 cm}{1 cm}{0.5 cm}{1 cm}
+
+\title{Quantifying Pressing Effectiveness and Its Impact on Formations in Football}								% Title
+\author{Kenneth Ssekimpi}								% Author
+\date{\today}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.75]{figures/theme/logotypes/uct-logo.jpg}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE University of Cape Town}\\[0.5 cm]	% University Name
+    \textbf{\Large STA5093W: Data Science Minor Dissertation}\\[0.5 cm]				% Course Code + Course Name
+    \textbf{\large Research Proposal}\\[0.5 cm]				
+    \rule{\linewidth}{0.2 mm} \\[0.4 cm]
+    { \huge \bfseries \thetitle}\\
+    \rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+    \begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+		\emph{Student:}\\
+		\theauthor \\
+	\end{flushleft}
+    \end{minipage}~
+    \begin{minipage}{0.4\textwidth}
+	\begin{flushright} \large
+		\emph{Supervisor:} \\
+		Neil Watson									
+	\end{flushright}
+    \end{minipage}\\[2 cm]
+
+\today \\
+Student Number: SSKKEN001 \\
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Title}
+Quantifying Pressing Effectiveness and Its Impact on Formations in Football
+
+\section{Introduction/Background Information}
+
+The prominence of data science has increased in association football (or soccer), with its analytics output fast approaching other sporting codes such as baseball, cricket, and basketball due to the dynamic nature of the game \citep{decroos_soccer_2020}. Football's applicability to analytics has given rise to numerous use cases including the analysis of player performance (for example, passing and positioning) and the strategic decision-making process employed by coaches \citep{cotton_how_2022, goes_unlocking_2021}. One fundamental tactic analysed is pressing, a defensive strategy where the team without possession aggressively attempts to regain the ball. Pressing disrupts the opponent's build-up play, forces errors, and facilitates quick transitions to offence, making it a cornerstone of modern football \citep{chambers_toby_different_2022, morgan_will_how_2018}. Pressing strategies involve the application of different formations to optimise defensive effectiveness. For instance, a high pressing strategy might be more suitable for a 4-3-3 formation, whereas zonal pressing fits better with a 4-4-2 setup \citep{coaches_voice_4-3-3_2022}. Formations refer to the arrangement of players on the pitch, influencing both attacking and defensive strategies and manoeuvres \citep{bauer_putting_2023}. 
+
+Machine learning techniques have increasingly been used to understand the pressing strategies implemented by successful teams and the potential impact of different formations on the effectiveness of pressing \citep{rico-gonzalez_markel_machine_2023, bauer_data-driven_2021}. Despite the development of metrics like \textit{Passes Allowed Per Defensive Action} (PPDA) or \textit{Defensive Action Expected Threat} (DAxT) to measure aspects of pressing effectiveness (or more generally, the effectiveness of defensive contributions), there is a gap in research regarding the influence of formations on pressing throughout the pitch \citep{bauer_data-driven_2021, rico-gonzalez_markel_machine_2023}. 
+
+\section{Literature Review}
+
+\subsection{Types of Presses}
+There are several types of presses used in different situations, often depending on the team's overall tactics and the location of the ball on the pitch \citep{chambers_toby_different_2022}. Some common types include:
+\begin{itemize}
+    \item \textbf{High Press}: The team applies pressure high up the pitch in the opponent's attacking or midfield third. This is a high-risk, high-reward tactic that can lead to turnovers in dangerous areas but leaves the defence vulnerable if bypassed \citep{chambers_toby_different_2022, low_exploring_2018}.
+    \item \textbf{Midfield Press}: Pressing occurs around the centre of the pitch, allowing the opponent some space to build up play, but restricting their options and forcing them backwards \citep{chambers_toby_different_2022}.
+    \item \textbf{Low Block}: The team defends defends deep in their own half, staying compact and forcing the opponent to break them down \citep{chambers_toby_different_2022, low_exploring_2018}.
+    \item \textbf{Counter-Press} (or \textit{gegenpress}): The team aims to win the ball back immediately after losing possession, typically in the opponent's attacking half (like the high press). This high-intensity tactic relies on quick transitions and is effective against unprepared teams. However, the counter-press needs to be used strategically to avoid the team losing its shape \citep{chambers_toby_different_2022}.
+\end{itemize}
+
+Effective pressing requires co-ordinated pressing triggers (specific actions or cues that signal to players to initiate pressing), player co-operation, and individual pressing skills \citep{modric_influence_2023}.
+
+\subsection{Formation Analysis and Gameplay Influence}
+Different types of formations can be employed to optimise various aspects of gameplay, such as:
+\begin{itemize}
+    \item \textbf{Attacking Play}: Formations impact how teams build attacks with some emphasizing width and others focusing on central control \citep{bauer_putting_2023}.
+    \item \textbf{Defensive Play}: Formations dictate defensive shape and pressing strategies, with some formations favouring high pressing fullbacks and others prioritising defensive solidity \citep{bauer_putting_2023}.
+    \item \textbf{Player Roles}: Formations define player responsibilities. Wingers in a 4-2-3-1 focus on attacking the flanks, while a lone striker needs good hold-up play \citep{bauer_putting_2023}.
+    \item \textbf{Flexibility}: Modern teams often adapt formations dynamically during the game based on the opponent and situation \citep{bauer_putting_2023}.
+\end{itemize}
+
+\subsection{Data Analysis in Football Performance}
+Data analysis is increasingly influencing football performance analysis, offering new tools and methods for evaluating tactics and player performance \citep{link_data_2018}. Pressing and formation analysis are two such nascent applications that have received more attention in recent years. There now exists ample data for:
+\begin{itemize}
+    \item \textbf{Pressing Analysis}: StatsBomb is a football database and analytics website that aims to provide comprehensive statistics and data on various aspects of football. Their data allows for quantifying pressing intensity, success rates, and player contributions \citep{morgan_will_how_2018}.
+    \item \textbf{Formation Analysis}: The tracking of player movements within formations, analysing passing patterns specific to formations and assessing their effectiveness against different opponents. For example, data analysis can reveal if a team's wingers in a 4-3-3 are providing enough width and crosses in attack \cite{goes_unlocking_2021}.
+\end{itemize}
+
+\subsection{Gap in Existing Research: Pressing and Formations}
+There's a gap in research regarding a \textbf{quantitative analysis} of how formations directly influence pressing effectiveness. Current research focuses on analysing pressing itself or formation analysis separately, with little attention paid to the influence of one on the other \citep{forcher_keys_2022}.
+
+\subsection{Proposal Contribution}
+My research can bridge this gap by:
+\begin{itemize}
+    \item Analysing pressing metrics (intensity, success rates) for different formations (e.g., high press effectiveness in 4-3-3 versus 4-4-2).
+    \item Identifying formations that might be better suited for specific pressing strategies (e.g. formations that facilitate quicker counter-pressing).
+\end{itemize}
+By addressing this research gap, my work can provide valuable insights for coaches and analysts to optimise pressing tactics based on team formations.
+
+\section{Research Objectives}
+\subsection{Research Questions}
+\begin{itemize}
+    \item How do formations influence pressing success rates?
+    \item Are there specific game situations (e.g., trailing in the second half) where formations influence pressing effectiveness?
+    \item Which player positions within a formation (e.g., defensive midfielders versus wingers) are most crucial for successful pressing?
+\end{itemize}
+
+\subsection{Significance}
+This research will provide valuable insights for coaches and analysts by:
+\begin{itemize}
+    \item Highlighting formations that optimise pressing effectiveness, which could be used to guide player recruitment and training strategies that align with the team's pressing approach.
+    \item Identifying game situations where specific formations should be used to maximise pressing success.
+\end{itemize}
+By delving into the interplay between formations and pressing, this research can empower teams to gain a tactical advantage on the pitch.
+
+\subsection{Justification}
+The rationale for this research is supported by studies like \citet{modric_influence_2023}, which emphasise the importance of pressing for success. Additionally, \citet{rico-gonzalez_markel_machine_2023} and \citet{goes_unlocking_2021} highlight the gap in research on formations' impact on pressing effectiveness.
+
+This research offers a novel approach to analysing pressing tactics by considering the influence of formations. It has the potential to impact football strategy and performance optimisation.
+
+\section{Methodology}
+\subsection{Data Source}
+The StatsBomb Open Data repository facilitates football research by making some of its proprietary data publicly available its via \textit{StatsBombR} R package. 
+
+Additionally, the \textit{worldfootballR} package enables users to extract relevant player metrics and match data from renowned football data platforms, such as \textit{FBref}, which both provide granular player- and team-level data. 
+
+It should be noted, however, that using free data sources might require additional cleaning and preprocessing steps before analysis. This is especially true if combining data from different data sources.
+
+\subsection{Data Description}
+The following types of data, which are confirmed to be available from the sources listed in Section 5.1, would aid in answering the research questions stipulated in Section 4:
+\begin{itemize}
+    \item Event Data:
+    \begin{itemize}
+        \item Tackles (successful and unsuccessful)
+        \item Interceptions
+        \item Pressures (number of times a player is closely guarded by the opponent)
+        \item Recoveries (winning the ball back after losing possession)
+    \end{itemize}
+    \item Formation Data:
+    \begin{itemize}
+        \item Team formation (e.g., 4-4-2, 3-5-2)
+        \item Player positions within the formation (e.g., central midfielder, left winger)
+    \end{itemize}
+    \item Match Context Data:
+    \begin{itemize}
+        \item Game state (winning, losing, tied)
+        \item Match period (first half, second half)
+        \item Scoreline
+    \end{itemize}
+\end{itemize}
+
+\subsection{Data Analysis Methods}
+This research aims to bridge the gap of analysing how different formations influence pressing effectiveness and how pressing effectiveness varies across these formations. Various techniques will be used, such as:
+\begin{itemize}
+    \item \textbf{Classification}: Categorise pressing events as successful (ball recovery) or unsuccessful based on features like tackle success rate, location of the press, and players involved \citep{forcher_keys_2022}.
+    \item \textbf{Regression}: Analyse how pressing effectiveness (e.g., percentage of successful pressures) relates to different formations. This will involve modelling the relationship between pressing metrics, formation types, and outcome variables like goals scored or possession won.
+    \item \textbf{Clustering}: Group formations based on player positioning and tactics to identify clusters with inherently different pressing styles, allowing for the assessment of the effectiveness of each style \citep{merhej_what_2021}.
+\end{itemize}
+
+\section{Ethical Considerations}
+\subsection{Data Collection}
+Data providers such as StatsBomb collect statistical data relating to players for usage in their own services \citep{noauthor_statsbomb_2022}. Identifiable player information, such as physical attributes, is collected from teams, broadcast feeds, and public sources \citep{noauthor_statsbomb_2022}. No health or confidential data about players is processed. Personal player data that pertains to in-game situations, such as substitutions due to injury, is included; however, specific details about the injuries are not disclosed \cite{noauthor_statsbomb_2022}.
+
+\subsection{Data Use and Regulations}
+To safeguard player identities, the data will be anonymised, and player names will be omitted from the datasets. While it is unlikely that individuals' consent was sought during data collection. professional sports players expect their in-game actions to be analysed, as this data is available to anyone watching a game. Given that millions of people watch these matches, it is reasonable to assume that the actions made by players in games are not confidential information. None of the methodology employed in or the results of this study will discriminate against any individual player or groups/teams of players.
+
+Strict adherence to the data providers' terms of use regarding data access and usage will be observed. Sharing raw data or unauthorised usage will be avoided.
+
+\subsection{Additional Considerations}
+\begin{itemize}
+    \item Data collection methods can introduce bias, such as in the case of focusing on certain leagues.
+    \item Transparency around data collection, anonymisation techniques, and intended uses will be observed.
+    \item This study advocates for responsible data usage in football that benefits the football ecosystem (i.e., players and coaches).
+\end{itemize}
+
+\section{Timeline (work plan) and Budget}
+
+\begin{table}[hbt!]
+    \centering
+    \begin{tabular}{ |p{4cm}||p{4cm}|p{3.5cm}|p{4cm}|  }
+    \hline    
+    \textbf{Phase}  &\textbf{Description}  &\textbf{Due Date} &\textbf{Key Milestones}  \\
+    \hline
+    Ethics Approval   & Gain ethics approval &14 June 2024& Prepare/submit ethics application, address feedback \\
+    \hline
+    Literature Review   & Analyse existing research    &30 June 2024&   Complete bibliographic search, identify relevant articles, summarise key findings.\\
+    \hline
+    Data Collection and Cleaning& Collect, clean and pre-process data & 31 July 2024 & Download R packages, write scripts to clean and organise data. Document steps. \\
+    \hline
+    Data Analysis & Analyse data (quantitative methods) & 30 September 2024& Explore data, develop analysis plan (statistical tests), perform data analysis, interpret results, visualise findings.  \\
+    \hline
+    Report Writing    & Write comprehensive research report &14 November 2024 & Structure report, explain research question/s, methodology, data analysis procedures, present results, discuss implications, conclusion. \\
+    \hline
+    Thesis Submission    & Hand in final dissertation &14 December 2024 & Adhere to formatting convention/s, proofread and edit work, meet all deadlines, prepare for possible thesis defence. \\
+    \hline
+    \end{tabular}
+    \caption{Research Timeline}
+    \label{tab:my_label}
+\end{table}
+
+Budget: None
+
+\bibliography{back-matter/bibliography/bibliography}
+
+\end{document}
