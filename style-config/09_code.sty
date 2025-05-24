@@ -1,16 +1,26 @@
-\RequirePackage{minted}
-\RequirePackage{caption}
-\RequirePackage{float}
-
+%%% Code Highlighting %%%
 \newenvironment{code}{\captionsetup{type=listing}}{}
-\SetupFloatingEnvironment{listing}{name=Listing,within=none}
-\captionsetup[listing]{position=above,skip=-4pt}
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+    \SetupFloatingEnvironment{listing}{name=Listagem,within=none}
+}{%
+    \SetupFloatingEnvironment{listing}{name=Listing,within=none}
+}
+\captionsetup[listing]{position=above,skip=-6pt}
+\newenvironment{longlisting}{\bigskip\medskip\captionsetup{type=listing}}{}
 
+% Define a new and improved minted style.
 \setminted{
-    frame=lines,framesep=2mm,baselinestretch=1.2,
-    fontsize=\footnoteside,linenos,tabsize=4,
-    breaklines,breakanywhere    
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    fontsize=\footnotesize,
+    linenos,
+    tabsize=4,
+    breaklines=true,
+    breakanywhere=true
 }
 
-% Grey line numbers
-\renewcommand{\theFancyVerbLine}{\scriptsize\textcolor{gray}{\arabic{FancyVerbLine}}}
+% Change line number color to gray (Frade's suggestion).
+\renewcommand{\theFancyVerbLine}{%
+    \scriptsize\textcolor[rgb]{0.7,0.7,0.7}{\arabic{FancyVerbLine}}%
+}

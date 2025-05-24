@@ -3,7 +3,7 @@
     \parbox[b][\paperheight]{\paperwidth}{%
     \vfill
     \centering
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Figures/Theme/Front-Page-BG.pdf}%
+    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figures/theme/Front-Page-BG.pdf}%
     \vfill
 }}}
 \AddToShipoutPictureBG*{\BackgroundPicFrontPage}
@@ -14,10 +14,13 @@
     \color{frontpagedark}
     \vspace*{\baselineskip}
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.48\linewidth]{figures/theme/logotypes/uct-logo.jpg}
-    \end{figure}
+    \ifthenelse{\equal{\SchoolOption}{estg}}{
+        \begin{figure}
+            \includegraphics[width=0.485\linewidth]{figures/theme/logotypes/uct-logo.jpg}
+            % \includegraphics[width=0.4\linewidth]{Figures/Theme/Logotypes/IPLeiria-ESTG-Logo-Old.png}
+        \end{figure}
+    }    
+    
 
     \vspace{3.5\baselineskip}
 
@@ -30,12 +33,31 @@
         }
     }
 
-    \vspace{0.8\baselineskip}    
+    \vspace{0.8\baselineskip}
+
+    % Subtitle.
+    \noindent
+    \makebox[\textwidth][l]{%
+        \parbox{\dimexpr\textwidth-7cm\relax}{
+            \setstretch{1.03}
+            \raggedright\fontsize{14}{19}\selectfont\GetSubtitle
+        }
+    }
 
     \vspace{35pt}
 
     % Author.
-    {\noindent\bfseries\fontsize{14}{19}\selectfont\GetFirstAuthor}    
+    {\noindent\bfseries\fontsize{14}{19}\selectfont\GetFirstAuthor}
+
+    \ifdefined\GetSecondAuthor
+        \vspace{8pt}
+        {\noindent\bfseries\fontsize{14}{19}\selectfont\GetSecondAuthor}
+	\fi
+
+    \ifdefined\GetThirdAuthor
+        \vspace{8pt}
+        {\noindent\bfseries\fontsize{14}{19}\selectfont\GetThirdAuthor}
+	\fi
 
     \vspace{70pt}    
 
@@ -46,13 +68,25 @@
     \renewcommand{\arraystretch}{0.1}
     \hspace*{-2.5pt}\begin{tabular}{@{}r@{\hspace{5pt}}>{\raggedright\arraybackslash}m{6cm}@{}}
         \textbf{Supervisor:} & \GetSupervisor \\ [-.7ex]
-        & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSupervisorTitle} \\ [2ex]        
+        & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSupervisorTitle} \\ [2ex]
         
+        \ifdefined\GetCoSupervisor
+            \textbf{Co-supervisor:} & \GetCoSupervisor \\ [-.7ex]
+            & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetCoSupervisorTitle} \\ [.5ex]
+        \fi
+
+        \ifdefined\GetSecCoSupervisor        
+            & \GetSecCoSupervisor \\ [-.7ex]
+            & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSecCoSupervisorTitle} \\
+        \fi
     \end{tabular}
     }
     
     \vfill
-   
+	
+    % Faculty.
+	{\noindent\fontsize{10}{12}\selectfont\GetFaculty}
+	
     % Department.
 	{\noindent\fontsize{10}{12}\selectfont\GetDepartment}
 

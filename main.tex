@@ -1,24 +1,74 @@
-% Dissertation Master File
-\documentclass[ twoside, 12pt, parskip=half ]{scrbook}
+% --- Document Options --- 
+\documentclass[
+    language=english,
+    school=estg,
+    docstage=final,
+    media=paper,
+    linkcolor=uctblue,
+    chapterstyle=classic,
+    coverstyle=classic
+]{mini-dissert} 
 
-% --- Packages and Formatting ---
-\usepackage{style-config/12_thesis}
+%%% Document Version %%%
+\DocumentVersion{1.0.0} % This is required only if the 'docstage' is set to 'working'.
 
-% --- Metadata ---
+%%% Document Metadata %%%
 \input{metadata/metadata}
 
-% --- Document Start ---
+%%% Loading of Glossary and Acronyms %%%
+\makeglossaries
+%\loadglsentries{front-matter/04-Glossary}
+%\loadglsentries[\acronymtype]{front-matter/05-Acronyms}
+
 \begin{document}
-\frontmatter
-\input{front-matter/01-front-page}
-\tableofcontents
-\listoffigures \\
-\listoftables \\
-\mainmatter
-% --- Introduction ---
-\input{chapters/01_introduction/ch01_intro}
-% --- Literature Review ---
-\input{chapters/02_literature-review/ch02_lit_review}
-\backmatter
-\printbibliography
+
+%%% Front Matter %%%
+%\include{front-matter/00-Cover}
+\include{front-matter/01-front-page}
+
+%%% Copyright Statement %%%
+%\include{front-matter/02-Copyright}
+
+%%% Roman Numeration %%%
+\pagenumbering{roman}
+
+%%% Acknowledgements %%%
+%\include{front-matter/03-Acknowledgements}
+
+%%% Abstract %%%
+%\include{chapters/00-Abstract}
+
+%%% Table of Contents, List of Figures and List of Tables %%%
+\bookmarktocentry\tableofcontents
+\listoffigures
+\listoftables
+
+%%% Print: Glossary and Acronyms %%%
+\glossarytoc\printnormalglossary
+\acronymtoc\printacronymglossary
+
+%%% Arabic Numeration %%%
+\pagenumbering{arabic}
+
+%%% Chapters (**Insert Yours Here**) %%%
+\include{chapters/01_introduction/ch01_intro}
+\include{chapters/02_literature-review/ch02_lit_review}
+
+%%% Bibliography %%%
+\renewcommand{\refname}{Bibliography}
+\printbibliography[title={\refname},heading=bibintoc]
+
+%%% Appendices: Work that *YOU* Developed %%%
+\appendix
+%\input{front-matter/06-Appendices}
+%\input{chapters/Appendices/00-AppendixA}
+%\input{chapters/Appendices/01-AppendixB}
+
+%%% Annexes: Work that *YOU DID NOT* Develop %%%
+%\input{front-matter/07-Annexes}
+%\input{chapters/Annexes/00-AnnexA}
+
+%%% Back Page %%%
+%\input{front-matter/08-Back-Page}
+
 \end{document}

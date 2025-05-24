@@ -1,15 +1,23 @@
-% --- Core colours ---
+%%% Document Colors %%%
+
 \definecolor{uctblack}{HTML}{000000}
 \definecolor{uctblue}{HTML}{009ADA}
-\definecolor{uctdarkblue}{HTML}{00243A}
+\definecolor{uctdarkblue}{HTML}{002434}
 
-% --- Template hooks ---
+% --- Core template keys ---
 \colorlet{maincolour}{uctblue}
-\colorlet{chapterdarkblue}{uctdarkblue}
-\colorlet{chaptergrey}{uctdarkblue!60}
+
+% Number colour for chapter style 'classic' and 'fancy'
+\colorlet{chapterdarkred}{uctdarkblue}
+
+% Number colour for chapter style 'modern'
+\colorlet{chaptergray}{uctdarkblue!60}
+
+% Front-page stripe colour (dark neutral background)
 \colorlet{frontpagedark}{uctdarkblue}
 
-% --- Optional utility greys ---
-\definecolor{uctgrey75}{HTML}{4C4C4C}
-\definecolor{uctgrey50}{HTML}{808080}
-\definecolor{uctgrey25}{HTML}{BFBFBF}
+% --- Optional: custom tcolourbox blocks ---
+\colorlet{note}{uctblue}
+\colorlet{tip}{uctdarkblue!70!black}
+\colorlet{warning}{uctdarkblue!40!black}
+\colorlet{todo}{uctdarkblue!50!black}
