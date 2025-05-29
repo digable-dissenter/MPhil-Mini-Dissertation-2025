@@ -1,79 +1,80 @@
-% Author Name: José Areia 
-% Author Contact: jose.apareia@gmail.com
-% Version: 2.2.5 - 2025/04/16
-% Public Repository: https://github.com/joseareia/ipleiria-thesis
-% Wiki/Getting Help: https://github.com/joseareia/ipleiria-thesis/wiki
-
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{IPLeiriaThesis}[2023/12/12 IPLeiria Thesis Class]
+\ProvidesClass{UCTScienceThesis}[2025/05/29 UCT Science Thesis Class]
+
+\newif\ifUCT@printglossary
+\UCT@printglossaryfalse
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
+\cs_new:Npn \UCTScienceThesis_check_color:n {
+    \color_if_exist:NTF #1
+        { }
+        {
+            \tl_gset:Nn \g_UCTScienceThesis_linkcolor_tl { black }
+            \ClassWarningNoLine{UCTScienceThesis}
+                {Specified~'linkcolor'~'#1'~undefined;~defaulting~to~black}
+        }
+}
 
 %%% Handle Class Options %%%
 \ExplSyntaxOn
 
-\cs_new:Npn \IPLeiriaThesis_check_color:n #1 {
-  \tl_set:Nn \l_tmpa_tl { #1 }
-  \color_set:nn { \l_tmpa_tl } { #1 }
-}
-
-\keys_define:nn { IPLeiriaThesis } {
+\keys_define:nn { UCTScienceThesis } {
     school .choices:nn =
-        { estg, esecs, esslei, esad, estm }
-        { \tl_gset:Nn \g_IPLeiriaThesis_myschool_tl { #1 } },
+        { uctscience }
+        { \tl_gset:Nn \g_UCTScienceThesis_myschool_tl { #1 } },
     school / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}
-        {Specified~'school'~not~available.~Defaulting~to~'estg'} },
-    school .default:n = { estg },
-    school .initial:n = { estg },
+        { \ClassWarningNoLine{UCTScienceThesis}
+        {Specified~'school'~not~available.~Defaulting~to~'uctscience'} },
+    school .default:n = { uctscience },
+    school .initial:n = { uctscience },
 
     coverstyle .choices:nn =
         { classic, bw }
-        { \tl_gset:Nn \g_IPLeiriaThesis_mycover_tl { #1 } },
+        { \tl_gset:Nn \g_UCTScienceThesis_mycover_tl { #1 } },
     coverstyle / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'coverstyle'~not~available.~Defaulting~to~'classic'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'coverstyle'~not~available.~Defaulting~to~'classic'} },
     coverstyle .default:n = { classic },
     coverstyle .initial:n = { classic },
 
     language .choices:nn = 
-        { english, portuguese } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_mylanguage_tl { #1 } },
+        { english } 
+        { \tl_gset:Nn \g_UCTScienceThesis_mylanguage_tl { #1 } },
     language / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'language'~not~available.~Defaulting~to~'english'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'language'~not~available.~Defaulting~to~'english'} },
     language .default:n = { english },
     language .initial:n = { english },
 
     chapterstyle .choices:nn = 
         { classic, fancy, modern } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_style_tl { #1 } },
+        { \tl_gset:Nn \g_UCTScienceThesis_style_tl { #1 } },
     chapterstyle / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'chapterstyle'~not~available.~Defaulting~to~'classic'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'chapterstyle'~not~available.~Defaulting~to~'classic'} },
     chapterstyle .default:n = { classic },
     chapterstyle .initial:n = { classic },
 
     docstage .choices:nn = 
         { working, final } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_docstage_tl { #1 } },
+        { \tl_gset:Nn \g_UCTScienceThesis_docstage_tl { #1 } },
     docstage / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'docstage'~not~available.~Defaulting~to~'working'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'docstage'~not~available.~Defaulting~to~'working'} },
     docstage .default:n = { working },
     docstage .initial:n = { working },
 
     media .choices:nn = 
         { paper, screen } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_media_tl { #1 } },
+        { \tl_gset:Nn \g_UCTScienceThesis_media_tl { #1 } },
     media / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'media'~not~available.~Defaulting~to~'paper'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'media'~not~available.~Defaulting~to~'paper'} },
     media .default:n = { paper },
     media .initial:n = { paper },
 
     linkcolor .code:n = {
-        \tl_gset:Nn \g_IPLeiriaThesis_linkcolor_tl { #1 }
-        \IPLeiriaThesis_check_color:n { #1 }
+        \tl_gset:Nn \g_UCTScienceThesis_linkcolor_tl { #1 }
+        \UCTScienceThesis_check_color:n { #1 }
         \tl_if_eq:NNTF \l_tmpa_tl \q_no_value {
-            \tl_gset:Nn \g_IPLeiriaThesis_linkcolor_tl { black }
-            \ClassWarningNoLine{IPLeiriaThesis}{Specified~'linkcolor'~not~available.~Defaulting~to~'black'}
+            \tl_gset:Nn \g_UCTScienceThesis_linkcolor_tl { black }
+            \ClassWarningNoLine{UCTScienceThesis}{Specified~'linkcolor'~not~available.~Defaulting~to~'black'}
         }
     },
     linkcolor .default:n = { black },
@@ -81,26 +82,26 @@
 
     doctype .choices:nn = 
         { thesis, report } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_doctype_tl { #1 } },
+        { \tl_gset:Nn \g_UCTScienceThesis_doctype_tl { #1 } },
     doctype / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'doctype'~not~available.~Defaulting~to~'thesis'} },
+        { \ClassWarningNoLine{UCTScienceThesis}{Specified~'doctype'~not~available.~Defaulting~to~'thesis'} },
     doctype .default:n = { thesis },
     doctype .initial:n = { thesis },
     
     unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{An~unknown~option~was~ignored.~Please~check~the~documentation~to~see~the~available~options} }
+        { \ClassWarningNoLine{UCTScienceThesis}{An~unknown~option~was~ignored.~Please~check~the~documentation~to~see~the~available~options} }
 }
 
-\newcommand{\LanguageOption}{\g_IPLeiriaThesis_mylanguage_tl}
-\newcommand{\SchoolOption}{\g_IPLeiriaThesis_myschool_tl}
-\newcommand{\CoverOption}{\g_IPLeiriaThesis_mycover_tl}
-\newcommand{\ChapterOption}{\g_IPLeiriaThesis_style_tl}
-\newcommand{\DocStageOption}{\g_IPLeiriaThesis_docstage_tl}
-\newcommand{\MediaOption}{\g_IPLeiriaThesis_media_tl}
-\newcommand{\ColorOption}{\g_IPLeiriaThesis_linkcolor_tl}
-\newcommand{\DocTypeOption}{g_IPLeiriaThesis_doctype_tl}
+\newcommand{\LanguageOption}{\g_UCTScienceThesis_mylanguage_tl}
+\newcommand{\SchoolOption}{\g_UCTScienceThesis_myschool_tl}
+\newcommand{\CoverOption}{\g_UCTScienceThesis_mycover_tl}
+\newcommand{\ChapterOption}{\g_UCTScienceThesis_style_tl}
+\newcommand{\DocStageOption}{\g_UCTScienceThesis_docstage_tl}
+\newcommand{\MediaOption}{\g_UCTScienceThesis_media_tl}
+\newcommand{\ColorOption}{\g_UCTScienceThesis_linkcolor_tl}
+% \newcommand{\DocTypeOption}{g_UCTScienceThesis_doctype_tl}
 
-\ProcessKeyOptions[IPLeiriaThesis]
+\ProcessKeyOptions[UCTScienceThesis]
 \ExplSyntaxOff
 
 %%% Load Master Class %%%
@@ -124,6 +125,33 @@
 \RequirePackage{amsmath} % Advanced mathematical expressions.
 \RequirePackage{amssymb} % Extended mathematical symbols.
 \RequirePackage[dvipsnames]{xcolor} % Extended color support.
+%%% ------------ UCT palette & geometry defaults -------------
+\definecolor{uctblue}{HTML}{009ADA}
+\definecolor{uctdark}{HTML}{00243A}
+\colorlet{maincolour}{uctblue}
+\colorlet{maincolor}{maincolour}
+
+\RequirePackage{geometry}
+\geometry{a4paper,inner=2.5cm,outer=2cm,top=2.2cm,bottom=2.2cm}
+
+% --- Global line spacing ---
+\RequirePackage{setspace}
+\AtBeginDocument{\onehalfspacing}
+
+\providecommand{\DocumentVersion}[1]{}
+
+% --- Hyperref colour defaults - honour user override later ---
+\AtBeginDocument{
+    \hypersetup{
+        linkcolor = \g_UCTScienceThesis_linkcolor_tl,
+        citecolor = uctdark,
+        urlcolor  = uctblue,
+        pdfborder = 0 0 0
+    }
+}
+
+\newcommand{\DocTypeOption}{\g_UCTScienceThesis_doctype_tl}
+%%% -----------------------------------------------------------
 \RequirePackage{tcolorbox} % Creating colored and highlighted boxes.
 \RequirePackage{varwidth} % Allows variable-width boxes.
 \RequirePackage{titlesec} % Customisation of section and chapter titles.
@@ -163,3 +191,14 @@
 \usepackage{style-config/09_code}
 \usepackage{style-config/10_macros}
 \usepackage{style-config/11_metadata}
+
+% ---------- User-facing helpers ----------
+\newcommand{\UCTFrontMatter}{
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+}
+
+\newcommand{\UCTMainMatter}{
+    \cleardoublepage
+    \pagenumbering{arabic}
+}

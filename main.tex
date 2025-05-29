@@ -1,28 +1,30 @@
-% --- Document Options --- 
+%%% ---------------- UCT custom preamble ---------------- %%%
 \documentclass[
     language=english,
-    school=estg,
-    docstage=final,
+    school=uctscience,
+    docstage=working,
     media=paper,
     linkcolor=uctblue,
     chapterstyle=classic,
     coverstyle=classic
-]{mini-dissert} 
+]{UCTScienceThesis} % Refer to the Wiki for a list of available options.
 
-%%% Document Version %%%
+
+% --- Document Version --- %
 \DocumentVersion{1.0.0} % This is required only if the 'docstage' is set to 'working'.
 
 %%% Document Metadata %%%
 \input{metadata/metadata}
 
 %%% Loading of Glossary and Acronyms %%%
-\makeglossaries
+%\makeglossaries
 %\loadglsentries{front-matter/04-Glossary}
 %\loadglsentries[\acronymtype]{front-matter/05-Acronyms}
 
 \begin{document}
 
-%%% Front Matter %%%
+% ---------- Front Matter ----------
+\UCTFrontMatter
 %\include{front-matter/00-Cover}
 \include{front-matter/01-front-page}
 
@@ -30,7 +32,7 @@
 %\include{front-matter/02-Copyright}
 
 %%% Roman Numeration %%%
-\pagenumbering{roman}
+% \pagenumbering{roman}
 
 %%% Acknowledgements %%%
 %\include{front-matter/03-Acknowledgements}
@@ -48,9 +50,10 @@
 \acronymtoc\printacronymglossary
 
 %%% Arabic Numeration %%%
-\pagenumbering{arabic}
+% \pagenumbering{arabic}
 
-%%% Chapters (**Insert Yours Here**) %%%
+% ---------- Chapters ----------
+\UCTMainMatter
 \include{chapters/01_introduction/ch01_intro}
 \include{chapters/02_literature-review/ch02_lit_review}
 
@@ -59,7 +62,7 @@
 \printbibliography[title={\refname},heading=bibintoc]
 
 %%% Appendices: Work that *YOU* Developed %%%
-\appendix
+%\appendix
 %\input{front-matter/06-Appendices}
 %\input{chapters/Appendices/00-AppendixA}
 %\input{chapters/Appendices/01-AppendixB}

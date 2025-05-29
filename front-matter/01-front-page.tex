@@ -33,31 +33,14 @@
         }
     }
 
-    \vspace{0.8\baselineskip}
-
-    % Subtitle.
-    \noindent
-    \makebox[\textwidth][l]{%
-        \parbox{\dimexpr\textwidth-7cm\relax}{
-            \setstretch{1.03}
-            \raggedright\fontsize{14}{19}\selectfont\GetSubtitle
-        }
-    }
+    \vspace{0.8\baselineskip}    
 
     \vspace{35pt}
 
     % Author.
     {\noindent\bfseries\fontsize{14}{19}\selectfont\GetFirstAuthor}
 
-    \ifdefined\GetSecondAuthor
-        \vspace{8pt}
-        {\noindent\bfseries\fontsize{14}{19}\selectfont\GetSecondAuthor}
-	\fi
-
-    \ifdefined\GetThirdAuthor
-        \vspace{8pt}
-        {\noindent\bfseries\fontsize{14}{19}\selectfont\GetThirdAuthor}
-	\fi
+    
 
     \vspace{70pt}    
 
@@ -68,17 +51,8 @@
     \renewcommand{\arraystretch}{0.1}
     \hspace*{-2.5pt}\begin{tabular}{@{}r@{\hspace{5pt}}>{\raggedright\arraybackslash}m{6cm}@{}}
         \textbf{Supervisor:} & \GetSupervisor \\ [-.7ex]
-        & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSupervisorTitle} \\ [2ex]
+        & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSupervisorTitle} \\ [2ex]      
         
-        \ifdefined\GetCoSupervisor
-            \textbf{Co-supervisor:} & \GetCoSupervisor \\ [-.7ex]
-            & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetCoSupervisorTitle} \\ [.5ex]
-        \fi
-
-        \ifdefined\GetSecCoSupervisor        
-            & \GetSecCoSupervisor \\ [-.7ex]
-            & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSecCoSupervisorTitle} \\
-        \fi
     \end{tabular}
     }
     
