@@ -5,7 +5,7 @@
 \NewDocumentCommand{\SupervisorMail}{m}{\newcommand{\GetSupervisorMail}{#1}}
 \NewDocumentCommand{\SupervisorTitle}{m}{\newcommand{\GetSupervisorTitle}{#1}}
 \NewDocumentCommand{\University}{m}{\newcommand{\GetUniversity}{#1}}
-\NewDocumentCommand{\School}{m}{\newcommand{\GetSchool}{#1}}
+\NewDocumentCommand{\Faculty}{m}{\newcommand{\GetFaculty}{#1}}
 \NewDocumentCommand{\Department}{m}{\newcommand{\GetDepartment}{#1}}
 \NewDocumentCommand{\Degree}{m}{\newcommand{\GetDegree}{#1}}
 \NewDocumentCommand{\Course}{m}{\newcommand{\GetCourse}{#1}}
@@ -21,9 +21,7 @@
 % Document version command.
 \NewDocumentCommand{\DocumentVersion}{m}{%
     \newcommand{\GetDocumentVersion}{\color{black}{%
-        \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-            \textit{Versão Preliminar #1}%
-        }{%
+        {%
             \textit{Draft Version #1}%
         }%
     }}%

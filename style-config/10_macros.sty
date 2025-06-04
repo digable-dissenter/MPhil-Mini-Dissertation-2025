@@ -7,9 +7,7 @@
     \addtocounter{page}{1}%
     \vspace*{\fill}
     \begin{center}
-        \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-            \textcolor{gray!50}{\textit{Página intencionalmente deixada em branco.}}
-        }{%
+        {%
             \textcolor{gray!50}{\textit{This page intentionally left blank.}}
         }
     \end{center}
@@ -26,11 +24,6 @@
     \\[.55em]%
     \noindent #1%
 }
-\newcommand{\guiainfo}[1]{%
-    \textcolor{note}{\faInfoCircle\ \textbf{Orientação Para a Escrita}}%
-    \\[.55em]%
-    \noindent #1%
-}
 
 % Redefine the underline command.
 \setlength{\ULdepth}{1.8pt}\contourlength{1.3pt}
@@ -41,7 +34,6 @@
 
 % Abstract keywords.
 \NewDocumentCommand{\keywordsen}{m}{\vspace{.4cm}\noindent\textbf{Keywords:} #1}
-\NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palavras-Chave:} #1}
 
 % Landscape mode - the proper way!
 \def\ifGm@preamble#1{\@firstofone}
@@ -84,9 +76,6 @@
 \addto\extrasenglish{\def\tableautorefname{Table}}
 \addto\extrasenglish{\def\partautorefname{Part}}
 \addto\extrasenglish{\def\appendixautorefname{Appendix}}
-\addto\extrasportuguese{\def\sectionautorefname{Secção}}
-\addto\extrasportuguese{\def\subsectionautorefname{Secção}}
-\addto\extrasportuguese{\def\subsubsectionautorefname{Secção}}
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%
