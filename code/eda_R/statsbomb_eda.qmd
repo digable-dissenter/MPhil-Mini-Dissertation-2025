@@ -1,0 +1,421 @@
+---
+title: "statsbomb_eda"
+editor: visual
+---
+
+```{r}
+#| label: libraries
+
+library(StatsBombR)
+library(dplyr)
+library(ggplot2)
+```
+
+## ALL
+
+```{r}
+#| label: data_load
+
+comp_analyses <- FreeCompetitions()  %>%
+  filter(!is.na(match_available_360)) # %>%
+  # filter(!(competition_name %in% c('La Liga', 'Ligue 1', 'Major League Soccer')))
+
+Matches <- FreeMatches(comp_analyses)
+  
+```
+
+## World Cup 2022
+
+```{r}
+#| label: world_cup_2022_i
+
+Matches_wc_2022 <- Matches %>%
+  filter(competition.competition_name == 'FIFA World Cup')
+
+wc_2022 <- free_allevents(MatchesDF = Matches_wc_2022, Parallel = T)
+wc_2022_clean <- allclean(wc_2022)
+
+wc_2022_360 <- free_allevents_360(MatchesDF = Matches_wc_2022, Parallel = T)
+```
+
+```{r}
+#| label: world_cup_2022_ii
+
+wc_2022 <- wc_2022 %>%
+   left_join(wc_2022_360, by = c("id" = "id")) # %>%
+#   rename(match_id = match_id.x) # %>%
+#   select(-match_id.y)
+
+
+
+# wc_2022_tactical_shift <- wc_2022_clean %>%
+#  filter(type.name == "Tactical Shift")
+```
+
+```{r}
+#| label: world_cup_2022_iii
+
+WC_2022_pressing <- wc_2022_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+WC_2022_pressure <- wc_2022_clean %>%
+  filter(type.name == "Pressure")
+
+WC_2022_counterpress <- wc_2022_clean %>%
+  filter(counterpress == TRUE)
+
+WC_2022_under_pressure <- wc_2022_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+WC_2022_pressure_counter <- wc_2022_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+WC_2022_counterpress_under <- wc_2022_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+WC_2022_under_pressure_press <- wc_2022_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+WC_2022_pressure_counter_OR <- wc_2022_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+WC_2022_counterpress_under_OR <- wc_2022_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+WC_2022_under_pressure_press_OR <- wc_2022_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+```
+
+## Women's World Cup 2023
+
+```{r}
+Matches_wwc_2023 <- Matches %>%
+  filter(competition.competition_id == 72)
+```
+
+```{r}
+
+wwc_2023 <- free_allevents(MatchesDF = Matches_wwc_2023, Parallel = T)
+wwc_2023_clean <- allclean(wwc_2023)
+
+wwc_2023_360 <- free_allevents_360(MatchesDF = Matches_wwc_2023, Parallel = T)
+```
+
+```{r}
+
+wwc_2023_tactical_shift <- wwc_2023_clean %>%
+  filter(type.name == "Tactical Shift")
+```
+
+```{r}
+
+
+all <- all %>%
+  left_join(all_360, by = c("id" = "id")) %>%
+  rename(match_id = match_id.x) %>%
+  select(-match_id.y)
+```
+
+```{r}
+
+
+wwc_2023_pressing <- wwc_2023_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+wwc_2023_pressure <- wwc_2023_clean %>%
+  filter(type.name == "Pressure")
+
+wwc_2023_counterpress <- wwc_2023_clean %>%
+  filter(counterpress == TRUE)
+
+wwc_2023_under_pressure <- wwc_2023_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+wwc_2023_pressure_counter <- wwc_2023_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+wwc_2023_counterpress_under <- wwc_2023_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+wwc_2023_under_pressure_press <- wwc_2023_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+wwc_2023_pressure_counter_OR <- wwc_2023_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+wwc_2023_counterpress_under_OR <- wwc_2023_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+wwc_2023_under_pressure_press_OR <- wwc_2023_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+```
+
+## Euro 2024
+
+```{r}
+#| label: euro_2024_i
+
+Matches_euro_2024 <- Matches %>%
+  filter(competition.competition_name == 'UEFA Euro' & season.season_name == '2024')
+```
+
+```{r}
+#| label: euro_2024_ii
+
+
+euro_2024 <- free_allevents(MatchesDF = Matches_euro_2024, Parallel = T)
+euro_2024_clean <- allclean(euro_2024)
+
+euro_2024_360 <- free_allevents_360(MatchesDF = Matches_euro_2024, Parallel = T)
+```
+
+```{r}
+
+euro_2024_tactical_shift <- euro_2024_clean %>%
+  filter(type.name == "Tactical Shift")
+```
+
+```{r}
+
+
+euro_2024_pressing <- euro_2024_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+euro_2024_pressure <- euro_2024_clean %>%
+  filter(type.name == "Pressure")
+
+euro_2024_counterpress <- euro_2024_clean %>%
+  filter(counterpress == TRUE)
+
+euro_2024_under_pressure <- euro_2024_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+euro_2024_pressure_counter <- euro_2024_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+euro_2024_counterpress_under <- euro_2024_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+euro_2024_under_pressure_press <- euro_2024_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+euro_2024_pressure_counter_OR <- euro_2024_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+euro_2024_counterpress_under_OR <- euro_2024_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+euro_2024_under_pressure_press_OR <- euro_2024_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+```
+
+## Euro 2020
+
+```{r}
+
+Matches_euro_2020 <- Matches %>%
+  filter(competition.competition_name == 'UEFA Euro' & season.season_name == '2020')
+```
+
+```{r}
+
+euro_2020 <- free_allevents(MatchesDF = Matches_euro_2020, Parallel = T)
+euro_2020_clean <- allclean(euro_2020)
+
+euro_2020_360 <- free_allevents_360(MatchesDF = Matches_euro_2020, Parallel = T)
+```
+
+```{r}
+
+euro_2020_tactical_shift <- euro_2020_clean %>%
+  filter(type.name == "Tactical Shift")
+```
+
+```{r}
+
+
+euro_2020_pressing <- euro_2020_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+euro_2020_pressure <- euro_2020_clean %>%
+  filter(type.name == "Pressure")
+
+euro_2020_counterpress <- euro_2020_clean %>%
+  filter(counterpress == TRUE)
+
+euro_2020_under_pressure <- euro_2020_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+euro_2020_pressure_counter <- euro_2020_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+euro_2020_counterpress_under <- euro_2020_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+euro_2020_under_pressure_press <- euro_2020_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+euro_2020_pressure_counter_OR <- euro_2020_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+euro_2020_counterpress_under_OR <- euro_2020_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+euro_2020_under_pressure_press_OR <- euro_2020_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+```
+
+## WEuro 2022
+
+```{r}
+
+Matches_weur_2022 <- Matches %>%
+  filter(competition.competition_id == 53)
+```
+
+```{r}
+
+weur_2022 <- free_allevents(MatchesDF = Matches_weur_2022, Parallel = T)
+weur_2022_clean <- allclean(weur_2022)
+
+weur_2022_360 <- free_allevents_360(MatchesDF = Matches_weur_2022, Parallel = T)
+```
+
+```{r}
+
+weur_2022_tactical_shift <- weur_2022_clean %>%
+  filter(type.name == "Tactical Shift")
+
+```
+
+```{r}
+
+weur_2022_pressing <- weur_2022_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+weur_2022_pressure <- weur_2022_clean %>%
+  filter(type.name == "Pressure")
+
+weur_2022_counterpress <- weur_2022_clean %>%
+  filter(counterpress == TRUE)
+
+weur_2022_under_pressure <- weur_2022_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+weur_2022_pressure_counter <- weur_2022_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+weur_2022_counterpress_under <- weur_2022_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+weur_2022_under_pressure_press <- weur_2022_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+weur_2022_pressure_counter_OR <- weur_2022_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+weur_2022_counterpress_under_OR <- weur_2022_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+weur_2022_under_pressure_press_OR <- weur_2022_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+
+```
+
+## Bayer Leverkusen's 2023/24 Bundesliga Season
+
+```{r}
+
+
+Matches_bayer_2024 <- Matches %>%
+  filter(competition.competition_name == '1. Bundesliga')
+
+bayer_2024 <- free_allevents(MatchesDF = Matches_bayer_2024, Parallel = T)
+bayer_2024_clean <- allclean(bayer_2024)
+
+bayer_2024_360 <- free_allevents_360(MatchesDF = Matches_bayer_2024, Parallel = T)
+```
+
+```{r}
+
+bayer_2024_tactical_shift <- bayer_2024_clean %>%
+  filter(type.name == "Tactical Shift")
+```
+
+```{r}
+
+
+bayer_2024_pressing <- bayer_2024_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE | under_pressure == TRUE)
+
+
+
+bayer_2024_pressure <- bayer_2024_clean %>%
+  filter(type.name == "Pressure")
+
+bayer_2024_counterpress <- bayer_2024_clean %>%
+  filter(counterpress == TRUE)
+
+bayer_2024_under_pressure <- bayer_2024_clean %>%
+  filter(under_pressure == TRUE)
+
+
+# AND 
+bayer_2024_pressure_counter <- bayer_2024_clean %>%
+  filter(type.name == "Pressure" & counterpress == TRUE)
+
+bayer_2024_counterpress_under <- bayer_2024_clean %>%
+  filter(counterpress == TRUE & under_pressure == TRUE)
+
+bayer_2024_under_pressure_press <- bayer_2024_clean %>%
+  filter(under_pressure == TRUE & type.name == "Pressure")
+
+
+
+# OR
+bayer_2024_pressure_counter_OR <- bayer_2024_clean %>%
+  filter(type.name == "Pressure" | counterpress == TRUE)
+
+bayer_2024_counterpress_under_OR <- bayer_2024_clean %>%
+  filter(counterpress == TRUE | under_pressure == TRUE)
+
+bayer_2024_under_pressure_press_OR <- bayer_2024_clean %>%
+  filter(under_pressure == TRUE | type.name == "Pressure")
+```
+
+## 

@@ -1,0 +1,41 @@
+---
+title: "fbref_pressures"
+editor: visual
+---
+
+```{r}
+library(worldfootballR)
+library(cowplot)
+library(ggsoccer)
+library(ggtext)
+library(glue)
+library(janitor)
+library(RColorBrewer)
+library(dplyr)
+library(tidyr)
+library(purrr)
+```
+
+```{r}
+df <- fb_season_team_stats(country = c("ENG", "ESP", "ITA", "GER", "FRA"),
+                            gender = "M", season_end_year = 2021, stat_type = "defense", tier = "1st") %>%
+  janitor::clean_names()
+
+head(df)
+```
+
+```{r}
+
+# nest by league and run mean pressures in def/mid/att 3rds - select and filter by single league
+
+pressures_df <- df %>%
+  group_by(country, team_or_opponent) %>%
+  nest() %>%
+  mutate(def_av = map(.x = data, ~mean(.x$def_3rd_pressures)),
+         mid_av = map(.x = data, ~mean(.x$mid_3rd_pressures)),
+         att_av = map(.x = data, ~mean(.x$att_3rd_pressures))) %>%
+  unnest() %>%
+  select(competition_name, country, team_or_opponent, squad, def_3rd_pressures:att_3rd_pressures, def_av:att_av) %>% 
+  filter(country=="ENG",
+         team_or_opponent=="team")
+```

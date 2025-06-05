@@ -1,0 +1,127 @@
+---
+title: "worldfootballR"
+format: html
+---
+
+```{r}
+library(worldfootballR)
+library(dplyr)
+```
+
+## Euro 2020
+
+```{r}
+
+euro_2020_results <- fb_match_results(
+  country = "",
+  gender = "M",
+  season_end_year = 2021,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/676/history/UEFA-Euro-Seasons"
+)
+
+
+euro_2020_urls <- fb_match_urls(
+  country = "",
+  gender = "M",
+  season_end_year = 2021,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/676/history/UEFA-Euro-Seasons"
+)
+
+```
+
+
+## Euro 2024
+
+```{r}
+
+euro_2024_results <- fb_match_results(
+  country = "",
+  gender = "M",
+  season_end_year = 2024,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/676/history/UEFA-Euro-Seasons"
+)
+
+
+euro_2024_urls <- fb_match_urls(
+  country = "",
+  gender = "M",
+  season_end_year = 2024,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/676/history/UEFA-Euro-Seasons"
+)
+```
+
+## Women's Euro 2022
+
+```{r}
+
+euro_2022_results <- fb_match_results(
+  country = "",
+  gender = "F",
+  season_end_year = 2022,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/162/history/UEFA-Womens-Euro-Seasons"
+)
+
+
+
+euro_2022_urls <- fb_match_urls(
+  country = "",
+  gender = "F",
+  season_end_year = 2022,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/162/history/UEFA-Womens-Euro-Seasons"
+)
+
+
+```
+
+
+## Women's World Cup 2023
+
+```{r}
+
+wwc_2023_results <- fb_match_results(
+  country = "",
+  gender = "F",
+  season_end_year = 2023,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/106/history/Womens-World-Cup-Seasons"
+)
+
+wwc_2023_urls <- fb_match_urls(
+  country = "",
+  gender = "F",
+  season_end_year = 2023,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/106/history/Womens-World-Cup-Seasons"
+)
+```
+
+
+## World Cup 2022
+
+```{r}
+wc_2022_results <- fb_match_results(
+  country = "",
+  gender = "M",
+  season_end_year = 2022,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/1/history/World-Cup-Seasons"
+)
+
+wc_2022_urls <- fb_match_urls(
+  country = "",
+  gender = "M",
+  season_end_year = 2022,
+  tier = "",
+  non_dom_league_url = "https://fbref.com/en/comps/1/history/World-Cup-Seasons"
+)
+```
+
+
+
+
