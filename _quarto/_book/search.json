@@ -4,7 +4,7 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "1.1 Background\nAssociation football, also known as soccer, is a game played by two teams of 11 players each. Teams compete by advancing a ball into their\nThis is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming. see @\n1 + 1\n\n[1] 2\n\nlibrary('rbbt')",
+    "text": "1.1 Background\nAssociation football, also known as soccer, is a game played by two teams of 11 players each. Teams compete by advancing a ball into their opponent’s goal, adhering to established rules that govern gameplay, player conduct, and scoring, with the aim to score more goals than their rivals (Memmert and Raabe 2018; Sumpter 2016). Although the fundamental simplicity of football contributes significantly to its global popularity and appeal, the game simultaneously possesses incredible complexity characterised by movement patterns, match plans, playing philosophies, and creativity (Bornn, Cervone, and Fernandez 2018; Vicente et al. 2024). These qualities are collectively referred to as football tactics (Memmert and Raabe 2018).\nFootball tactics involve strategically positioning players on the field and co-ordinating their movements to maximise the chances of winning matches. This encompasses both the formation that a team adopts (that is, the spatial arrangement of players on the pitch) and their overall style of play (Wilson 2010). Furthermore, Rein and Memmert (2016) describe football tactics as the actions and strategies implemented by a team and its players during a match to achieve specific goals, primarily winning the game. These actions are typically adaptations to dynamically-changing situations in the match and the behaviour of the opposing team, managing space, time, and individual actions on the pitch.\nFundamental to understanding these tactical deployments are the distinct player positions and the common tactical formations they operate within. Football teams",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "intro.html#background",
     "title": "1  Introduction",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Bornn, Luke, Dan Cervone, and Javier Fernandez. 2018. “Soccer Analytics: Unravelling the Complexity of ‘The Beautiful Game’.” Significance 15 (3): 26–29.\n\n\nMemmert, Daniel, and Dominik Raabe. 2018. Data Analytics in Football: Positional Data Collection, Modelling and Analysis. 1st ed. Taylor & Francis. https://books.google.co.za/books?id=O9tdDwAAQBAJ.\n\n\nRein, Robert, and Daniel Memmert. 2016. “Big Data and Tactical Analysis in Elite Soccer: Future Challenges and Opportunities for Sports Science.” SpringerPlus 5 (1): 1410. https://doi.org/10.1186/s40064-016-3108-2.\n\n\nSumpter, David. 2016. Soccermatics: Mathematical Adventures in the Beautiful Game. 1st ed. Bloomsbury Publishing. https://books.google.co.za/books?id=CoZVCwAAQBAJ.\n\n\nVicente, Luis Nunes, Thaksheel Alleck, Tommaso Giovannelli, Roman Mitchell, and Ori Remen. 2024. “Why Is Soccer so Popular: Understanding Underdog Achievement and Randomness in Team Ball Sports.” arXiv Preprint arXiv:2404.06626.\n\n\nWilson, Jonathan. 2010. Inverting the Pyramid: The History of Football Tactics. 1st ed. Orion Books Ltd. https://books.google.co.za/books?id=qYSAhJn-srwC.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Bornn, Luke, Dan Cervone, and Javier Fernandez. 2018. “Soccer\nAnalytics: Unravelling the Complexity of\n‘The Beautiful\nGame’.” Significance 15 (3): 26–29.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nMemmert, Daniel, and Dominik Raabe. 2018. Data\nAnalytics in Football: Positional\nData Collection, Modelling and\nAnalysis. 1st ed. Taylor & Francis. https://books.google.co.za/books?id=O9tdDwAAQBAJ.\n\n\nSumpter, David. 2016. Soccermatics: Mathematical\nAdventures in the Beautiful\nGame. 1st ed. Bloomsbury Publishing. https://books.google.co.za/books?id=CoZVCwAAQBAJ.\n\n\nVicente, Luis Nunes, Thaksheel Alleck, Tommaso Giovannelli, Roman\nMitchell, and Ori Remen. 2024. “Why Is Soccer so Popular:\nUnderstanding Underdog Achievement and Randomness in Team\nBall Sports.” arXiv Preprint arXiv:2404.06626.",
     "crumbs": [
       "References"
     ]

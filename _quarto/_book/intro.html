@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Quantifying Pressing Effectiveness and Its Impact on Formations in Footballs</title>
+<title>1&nbsp; Introduction – Quantifying Pressing Effectiveness and Its Impact on Formations in Football</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -85,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -152,7 +117,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quantifying Pressing Effectiveness and Its Impact on Formations in Footballs</a> 
+      <a href="./">Quantifying Pressing Effectiveness and Its Impact on Formations in Football</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -172,12 +137,6 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -224,21 +183,29 @@ div.csl-indent {
 
 <section id="background" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="background"><span class="header-section-number">1.1</span> Background</h2>
-<p>Association football, also known as soccer, is a game played by two teams of 11 players each. Teams compete by advancing a ball into their</p>
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming. see @</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'rbbt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Association football, also known as soccer, is a game played by two teams of 11 players each. Teams compete by advancing a ball into their opponent’s goal, adhering to established rules that govern gameplay, player conduct, and scoring, with the aim to score more goals than their rivals <span class="citation" data-cites="memmert_data_2018 sumpter_soccermatics_2016">(<a href="references.html#ref-memmert_data_2018" role="doc-biblioref">Memmert and Raabe 2018</a>; <a href="references.html#ref-sumpter_soccermatics_2016" role="doc-biblioref">Sumpter 2016</a>)</span>. Although the fundamental simplicity of football contributes significantly to its global popularity and appeal, the game simultaneously possesses incredible complexity characterised by movement patterns, match plans, playing philosophies, and creativity <span class="citation" data-cites="bornn_soccer_2018 vicente_why_2024">(<a href="references.html#ref-bornn_soccer_2018" role="doc-biblioref">Bornn, Cervone, and Fernandez 2018</a>; <a href="references.html#ref-vicente_why_2024" role="doc-biblioref">Vicente et al. 2024</a>)</span>. These qualities are collectively referred to as football tactics <span class="citation" data-cites="memmert_data_2018">(<a href="references.html#ref-memmert_data_2018" role="doc-biblioref">Memmert and Raabe 2018</a>)</span>.</p>
+<p>Football tactics involve strategically positioning players on the field and co-ordinating their movements to maximise the chances of winning matches. This encompasses both the formation that a team adopts (that is, the spatial arrangement of players on the pitch) and their overall style of play <span class="citation" data-cites="wilson_inverting_2010">(<a href="references.html#ref-wilson_inverting_2010" role="doc-biblioref">Wilson 2010</a>)</span>. Furthermore, <span class="citation" data-cites="rein_big_2016">Rein and Memmert (<a href="references.html#ref-rein_big_2016" role="doc-biblioref">2016</a>)</span> describe football tactics as the actions and strategies implemented by a team and its players during a match to achieve specific goals, primarily winning the game. These actions are typically adaptations to dynamically-changing situations in the match and the behaviour of the opposing team, managing space, time, and individual actions on the pitch.</p>
+<p>Fundamental to understanding these tactical deployments are the distinct player positions and the common tactical formations they operate within. Football teams</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+<div id="ref-bornn_soccer_2018" class="csl-entry" role="listitem">
+Bornn, Luke, Dan Cervone, and Javier Fernandez. 2018. <span>“Soccer Analytics: <span>Unravelling</span> the <span>Complexity</span> of <span>‘<span>The</span> <span>Beautiful</span> <span>Game</span>’</span>.”</span> <em>Significance</em> 15 (3): 26–29.
+</div>
+<div id="ref-memmert_data_2018" class="csl-entry" role="listitem">
+Memmert, Daniel, and Dominik Raabe. 2018. <em>Data <span>Analytics</span> in <span>Football</span>: <span>Positional</span> <span>Data</span> <span>Collection</span>, <span>Modelling</span> and <span>Analysis</span></em>. 1st ed. Taylor &amp; Francis. <a href="https://books.google.co.za/books?id=O9tdDwAAQBAJ">https://books.google.co.za/books?id=O9tdDwAAQBAJ</a>.
+</div>
+<div id="ref-rein_big_2016" class="csl-entry" role="listitem">
+Rein, Robert, and Daniel Memmert. 2016. <span>“Big Data and Tactical Analysis in Elite Soccer: Future Challenges and Opportunities for Sports Science.”</span> <em>SpringerPlus</em> 5 (1): 1410. <a href="https://doi.org/10.1186/s40064-016-3108-2">https://doi.org/10.1186/s40064-016-3108-2</a>.
+</div>
+<div id="ref-sumpter_soccermatics_2016" class="csl-entry" role="listitem">
+Sumpter, David. 2016. <em>Soccermatics: <span>Mathematical</span> <span>Adventures</span> in the <span>Beautiful</span> <span>Game</span></em>. 1st ed. Bloomsbury Publishing. <a href="https://books.google.co.za/books?id=CoZVCwAAQBAJ">https://books.google.co.za/books?id=CoZVCwAAQBAJ</a>.
+</div>
+<div id="ref-vicente_why_2024" class="csl-entry" role="listitem">
+Vicente, Luis Nunes, Thaksheel Alleck, Tommaso Giovannelli, Roman Mitchell, and Ori Remen. 2024. <span>“Why Is Soccer so Popular: <span>Understanding</span> Underdog Achievement and Randomness in Team Ball Sports.”</span> <em>arXiv Preprint arXiv:2404.06626</em>.
+</div>
+<div id="ref-wilson_inverting_2010" class="csl-entry" role="listitem">
+Wilson, Jonathan. 2010. <em>Inverting the <span>Pyramid</span>: <span>The</span> <span>History</span> of <span>Football</span> <span>Tactics</span></em>. 1st ed. Orion Books Ltd. <a href="https://books.google.co.za/books?id=qYSAhJn-srwC">https://books.google.co.za/books?id=qYSAhJn-srwC</a>.
 </div>
 </div>
 </section>
@@ -650,8 +617,8 @@ Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

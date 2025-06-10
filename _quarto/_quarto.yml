@@ -2,13 +2,32 @@ project:
   type: book
 
 book:
-  title: "Quantifying Pressing Effectiveness and Its Impact on Formations in Footballs"
-  author: "Kenneth Ssekimpi"
-  date: "2025/05/26"
+  title: "Quantifying Pressing Effectiveness and Its Impact on Formations in Football"
+  subtitle: "Minor Dissertation presented in partial fulfilment of the requirements for the degree of Master in Philosophy in Data Science"
+  date: "2025-06-04"
+  author: 
+    - name: Kenneth Ssekimpi
+      orcid: 0000-0000-0000-0000
+      email: SSKKEN001@myuct.ac.za
+      affiliation: 
+        name: University of Cape Town
+        faculty: Faculty of Science
+        department: Department of Statistical Sciences
+        address: Private Bag X3, Rondebosch 7701, South Africa
+      corresponding: true
+
+  # supervisor:
+  #   - name: Neil Watson
+  #     email: nm.watson@uct.ac.za
+  #     title: Lecturer
+      
+    
+      
+  
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    # - summary.qmd
     - references.qmd
 
 bibliography: references.bib
