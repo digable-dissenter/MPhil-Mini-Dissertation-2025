@@ -1,0 +1,1046 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  twoside]{uoe-thesis-template}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{CormorantGaramond}
+\usepackage{hologo}
+%\usepackage{natbib}
+%\citestyle{aysep={,}}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{lscape}
+\usepackage{textgreek}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% New colours
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+
+% Code listing style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+% define Javascript language for listings
+\lstdefinelanguage{JavaScript}{
+    keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywords={class, export, boolean, throw, implements, import, this},
+    ndkeywordstyle=\color{darkgray}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+% "mystyle" code listing set
+\lstset{style=mystyle, language=JavaScript}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Quantifying Pressing Effectiveness and Its Impact on Formations in Football},
+  pdfauthor={Kenneth Ssekimpi},
+  pdfkeywords={Football Analytics, Pressing, VPEP, Machine
+Learning, Defensive Metrics},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Quantifying Pressing Effectiveness and Its Impact on Formations
+in Football}
+\author{Kenneth Ssekimpi}
+\college{Department of Statistical Sciences}
+
+\masterssubmissiontrue
+\candidateno{SSKKEN001}
+\wordcount{15000}
+
+\renewcommand{\submittedtext}{\textit{Submitted in partial fulfillment of the requirements for the degree of Master
+in Philosophy in Data Science}}
+\degree{Master in Philosophy in Data Science}
+\degreedate{2025}
+\begin{document}
+% --- Line Spacing --- %
+% About 1.5-spaced
+\setlength{\textbaselineskip}{18pt plus2pt minus1pt}
+
+% Spacing for roman-numbered pages (acknowledgements, table of contents, etc.)
+\setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt}
+
+% Document spacing
+\setlength{\baselineskip}{\textbaselineskip}
+
+% --- Section Number Depth --- %
+\setcounter{secnumdepth}{3} % Number sections, subsections, and subsubsections
+% --- Table of Contents Depth --- %
+\setcounter{tocdepth}{3} % Include sections, subsections, and subsubsections in the table of contents
+
+% --- Abstract --- %
+\begin{abstractseparate}
+  \input{frontmatter/03-abstract.txt}
+\end{abstractseparate}
+
+\newpage
+\thispagestyle{empty} % No page number on this page
+\null
+\newpage
+\pagenumbering{roman}
+
+\begin{romanpages}
+
+% --- Title page --- %
+\maketitle
+
+% --- Dedication page --- %
+\ifdefined\dedication
+  \begin{dedication}
+    \input{frontmatter/01-dedication.txt}
+  \end{dedication}
+  
+% --- Declaration page --- %
+  \begin{declaration}
+  \addcontentsline{toc}{chapter}{Declaration}
+      \input{frontmatter/02-declaration.txt}
+    \vspace{0.5em}
+    %\begin{flushright}
+    %  \includegraphics[width=4cm]{frontmatter/figueres/signature.png}
+    %\end{flushright} 
+    \vspace{0.5em}
+    \begin{flushright}
+      {\large \textit{Kenneth Ssekimpi}}
+    \end{flushright}
+    \vspace{0.5em}
+    \noindent Word Count: 15000
+    \vfill
+    \noindent This thesis was conducted under the supervision of Mr Neil
+Watson \\
+    \textit{Lecturer, Department of Statistical Sciences, University of
+Cape Town} \\
+    Email: \texttt{nm.watson@uct.ac.za}.
+    \vspace{2cm}
+  \end{declaration}
+  
+% --- Abstract --- %
+  \begin{abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+    \input{frontmatter/03-abstract.txt}
+  \end{abstract}
+  
+  
+% --- Acknowledgements --- %
+  \begin{acknowledgements}
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+    \input{frontmatter/04-acknowledgements.txt}
+  \end{acknowledgements}
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\end{romanpages}
+
+\flushbottom
+\bookmarksetup{startatroot}
+
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction}\label{introduction}
+
+\section{Background}\label{background}
+
+Association football, also known as soccer, is a game played by two
+teams of 11 players each. Teams compete by advancing a ball into their
+opponent's goal, adhering to established rules that govern gameplay,
+player conduct, and scoring, with the aim to score more goals than their
+rivals (Sumpter, 2016; Memmert \& Raabe, 2018). Although the fundamental
+simplicity of football contributes significantly to its global
+popularity and appeal, the game simultaneously possesses incredible
+complexity characterised by movement patterns, match plans, playing
+philosophies, and creativity (Bornn, Cervone \& Fernandez, 2018; Vicente
+et al., 2024). These qualities are collectively referred to as football
+tactics (Memmert \& Raabe, 2018).
+
+Football tactics involve strategically positioning players on the field
+and co-ordinating their movements to maximise the chances of winning
+matches. This encompasses both the formation that a team adopts (that
+is, the spatial arrangement of players on the pitch) and their overall
+style of play (Wilson, 2010). Furthermore, Rein \& Memmert (2016)
+describe football tactics as the actions and strategies implemented by a
+team and its players during a match to achieve specific goals, primarily
+winning the game. These actions are typically adaptations to
+dynamically-changing situations in the match and the behaviour of the
+opposing team, managing space, time, and individual actions on the
+pitch.
+
+Fundamental to understanding these tactical deployments are the distinct
+player positions and the common tactical formations they operate within.
+Football teams are typically composed of players in four main
+categories: Goalkeepers (GK), primarily responsible for preventing
+goals; Defenders (DEF), who protect their goal and prevent opposing
+attacks (e.g., Centre-Backs, Full-Backs); Midfielders (MID), who link
+defence and attack and control central areas (e.g., Defensive
+Midfielders, Attacking Midfielders, Wingers); and Forwards/Strikers
+(FWD), whose main role is to score goals. These positions are
+strategically arranged into tactical formations, which dictate a team's
+general shape and approach during different phases of play. A phase of
+play in football refers to a segment of a match, typically defined for
+analysis or coaching purposes, characterised by the actions and
+organisation of one or both teams (Ghezzi \& Sotudeh, 2024). It can be
+understood as a sequence of consecutive events or actions that fit
+together (Decroos, 2020)
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{0}
+\bibitem[\citeproctext]{ref-andrienko_visual_2017}
+Andrienko, G., Andrienko, N., Budziak, G., Dykes, J., Fuchs, G.,
+Landesberger, T. von \& Weber, H. 2017. Visual analysis of pressure in
+football. \emph{Data Mining and Knowledge Discovery}. 31(6):1793--1839.
+DOI:
+\href{https://doi.org/10.1007/s10618-017-0513-2}{10.1007/s10618-017-0513-2}.
+
+\bibitem[\citeproctext]{ref-andrienko_exploring_2018}
+Andrienko, G., Andrienko, N., Budziak, G., Landesberger, T. von \&
+Weber, H. 2018. Exploring pressure in football. In \emph{Proceedings of
+the 2018 {International} {Conference} on {Advanced} {Visual}
+{Interfaces}}. ({AVI} '18). New York, NY, USA: Association for Computing
+Machinery. 1--3. DOI:
+\href{https://doi.org/10.1145/3206505.3206558}{10.1145/3206505.3206558}.
+
+\bibitem[\citeproctext]{ref-bauer_automated_2022}
+Bauer, P. 2022. Automated {Detection} of {Complex} {Tactical} {Patterns}
+in {Football}---{Using} {Machine} {Learning} {Techniques} to {Identify}
+{Tactical} {Behavior}. Doctoral. Universität Tübingen. Available:
+\url{https://publikationen.uni-tuebingen.de/xmlui/handle/10900/124679}
+{[}2024, March 17{]}.
+
+\bibitem[\citeproctext]{ref-bauer_data-driven_2021}
+Bauer, P. \& Anzer, G. 2021. Data-driven detection of counterpressing in
+professional football. \emph{Data Mining and Knowledge Discovery}.
+35(5):2009--2049. DOI:
+\href{https://doi.org/10.1007/s10618-021-00763-7}{10.1007/s10618-021-00763-7}.
+
+\bibitem[\citeproctext]{ref-bauer_putting_2023}
+Bauer, P., Anzer, G. \& Shaw, L. 2023. Putting team formations in
+association football into context. \emph{Journal of Sports Analytics}.
+9(1):39--59. DOI:
+\href{https://doi.org/10.3233/JSA-220620}{10.3233/JSA-220620}.
+
+\bibitem[\citeproctext]{ref-beal_optimising_2020}
+Beal, R., Chalkiadakis, G., Norman, T.J. \& Ramchurn, S.D. 2020. DOI:
+\href{https://doi.org/10.48550/arXiv.2003.10294}{10.48550/arXiv.2003.10294}.
+
+\bibitem[\citeproctext]{ref-beal_learning_2020}
+Beal, R., Changder, N., Norman, T. \& Ramchurn, S. 2020. Learning the
+{Value} of {Teamwork} to {Form} {Efficient} {Teams}. In
+\emph{Proceedings of the {AAAI} {Conference} on {Artificial}
+{Intelligence}}. V. 34. (5th series). 7063--7070. DOI:
+\href{https://doi.org/10.1609/aaai.v34i05.6192}{10.1609/aaai.v34i05.6192}.
+
+\bibitem[\citeproctext]{ref-bialkowski_identifying_2014}
+Bialkowski, A., Patrick Lucey, Carr, P., Yue, Y., Sridharan, S. \&
+Matthews, I. 2014. Identifying {Team} {Style} in {Soccer} {Using}
+{Formations} {Learned} from {Spatiotemporal} {Tracking} {Data}. In
+\emph{2014 {IEEE} {International} {Conference} on {Data} {Mining}
+{Workshop}}. 9--14. DOI:
+\href{https://doi.org/10.1109/ICDMW.2014.167}{10.1109/ICDMW.2014.167}.
+
+\bibitem[\citeproctext]{ref-borbely_all_2018}
+Borbely, L., Hrebfk, J., Ganczner, P. \& Singer, A. 2018. \emph{All
+{About} {Pressing} in {Soccer}: {History}, {Theory}, {Practice}}. Meyer
+\& Meyer Sport.
+
+\bibitem[\citeproctext]{ref-bornn_soccer_2018}
+Bornn, L., Cervone, D. \& Fernandez, J. 2018. Soccer analytics:
+{Unravelling} the {Complexity} of {``{The} {Beautiful} {Game}''}.
+\emph{Significance}. 15(3):26--29.
+
+\bibitem[\citeproctext]{ref-bortnik_mean_2022}
+Bortnik, L., Burger, J. \& Rhodes, D. 2022. The {Mean} and {Peak}
+physical {Demands} {During} {Transitional} {Play} and {High} {Pressure}
+{Activities} in {Elite} football. \emph{Biology of Sport}.
+39(4):1055--1064.
+
+\bibitem[\citeproctext]{ref-bradley_are_2018}
+Bradley, P.S. \& Ade, J.D. 2018. Are {Current} {Physical} {Match}
+{Performance} {Metrics} in {Elite} {Soccer} {Fit} for {Purpose} or {Is}
+the {Adoption} of an {Integrated} {Approach} {Needed}?
+\emph{International Journal of Sports Physiology and Performance}.
+13(5):656--664. DOI:
+\href{https://doi.org/10.1123/ijspp.2017-0433}{10.1123/ijspp.2017-0433}.
+
+\bibitem[\citeproctext]{ref-bransen_player_2020}
+Bransen, L. \& Van Haaren, J. 2020. DOI:
+\href{https://doi.org/10.48550/arXiv.2003.01712}{10.48550/arXiv.2003.01712}.
+
+\bibitem[\citeproctext]{ref-brindescu_study_2021}
+Brîndescu, S., Datcu, F.-R. \& Buda, I.-A. 2021. Study on the efficiency
+of advanced pressing in the {Premier} {League}. \emph{Baltic Journal of
+Health and Physical Activity}. 13(6):11.
+
+\bibitem[\citeproctext]{ref-brooks_using_2016}
+Brooks, J., Kerr, M. \& Guttag, J. 2016. Using machine learning to draw
+inferences from pass location data in soccer. \emph{Statistical Analysis
+and Data Mining: The ASA Data Science Journal}. 9(5):338--349. DOI:
+\href{https://doi.org/10.1002/sam.11318}{10.1002/sam.11318}.
+
+\bibitem[\citeproctext]{ref-carr_differences_2020}
+Carr, R., Mullen, R. \& Williams, M. 2020. Differences in high intensity
+running when playing a 4-4-2 formation with a high press strategy: A
+case study from the {English} {Championship}. \emph{International Sports
+Studies}. 42(2).
+
+\bibitem[\citeproctext]{ref-chambers_toby_different_2022}
+Chambers, T. 2022. Available:
+\url{https://soccersourcecoaching.com/different-types-of-presses-in-football/}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-cooper_impact_2020}
+Cooper, D. \& Pulling, C. 2020. The {Impact} of {Ball} {Recovery}
+{Type}, {Location} of {Ball} {Recovery} and {Duration} of {Possession}
+on the {Outcomes} of {Possessions} in the {English} {Premier} {League}
+and the {Spanish} {La} {Liga}. \emph{Science and Medicine in Football}.
+4(3):196--202.
+
+\bibitem[\citeproctext]{ref-cotton_how_2022}
+Cotton, R. \& Miller, I.L. 2022. Available:
+\url{https://www.datacamp.com/blog/how-data-science-is-changing-soccer}.
+
+\bibitem[\citeproctext]{ref-cox_mixer_2017}
+Cox, M.W. 2017. \emph{The {Mixer}: {The} {Story} of {Premier} {League}
+{Tactics}, from {Route} {One} to {False} {Nine}}. 1st ed. HarperCollins
+Publishers.
+
+\bibitem[\citeproctext]{ref-cox_zonal_2019}
+Cox, M.W. 2019. \emph{Zonal {Marking}: {The} {Making} of {Modern}
+{European} {Football}}. 1st ed. HarperCollins Publishers.
+
+\bibitem[\citeproctext]{ref-dayus_jacob_analysis_2021}
+Dayus, Jacob, Callaway, Andrew, Ellis, Shelley \& Butterworth, Andrew.
+2021. Analysis of playing style across different developmental stages in
+football: {International} {Journal} of {Performance} {Analysis} in
+{Sport}: {Vol} 21, {No} 6. \emph{International Journal of Performance
+Analysis in Sport}. 21(6):934--952. DOI:
+\url{https://doi.org/10.1080/24748668.2021.1963106}.
+
+\bibitem[\citeproctext]{ref-de_bacco_identifying_2021}
+De Bacco, C. 2021. Available: \url{https://vimeo.com/534001492}.
+
+\bibitem[\citeproctext]{ref-decroos_soccer_2020}
+Decroos, T. 2020. Soccer {Analytics} {Meets} {Artificial}
+{Intelligence}: {Learning} {Value} and {Style} from {Soccer} {Event}
+{Stream} {Data}. PhD thesis. KU Leuven. Available:
+\url{https://tomdecroos.github.io/reports/thesis_tomdecroos.pdf}.
+
+\bibitem[\citeproctext]{ref-decroos_interpretable_2019}
+Decroos, T. \& Davis, J. 2019. Interpretable {Prediction} of {Goals} in
+{Soccer}. In \emph{Proceedings of the {AAAI}-20 {Workshop} on
+{Artificial} {Intelligence} in {Team} {Sports}}.
+
+\bibitem[\citeproctext]{ref-decroos_automatic_2018}
+Decroos, T., Van Haaren, J. \& Davis, J. 2018. Automatic {Discovery} of
+{Tactics} in {Spatio}-{Temporal} {Soccer} {Match} {Data}. In
+\emph{Proceedings of the 24th {ACM} {SIGKDD} {International}
+{Conference} on {Knowledge} {Discovery} \& {Data} {Mining}}. ({KDD}
+'18). New York, NY, USA: Association for Computing Machinery. 223--232.
+DOI:
+\href{https://doi.org/10.1145/3219819.3219832}{10.1145/3219819.3219832}.
+
+\bibitem[\citeproctext]{ref-delibas_interactive_2019}
+Delibas, E., Uzun, A., Inan, M.F., Guzey, O. \& Cakmak, A. 2019.
+Interactive {Exploratory} {Soccer} {Data} {Analytics}. \emph{INFOR:
+Information Systems and Operational Research}. 57(2):141--164.
+Available:
+\url{https://www.tandfonline.com/doi/abs/10.1080/03155986.2018.1533204}
+{[}2024, March 09{]}.
+
+\bibitem[\citeproctext]{ref-fernandes_how_2020}
+Fernandes, T., Camerino, O., Garganta, J., Hileno, R. \& Barreira, D.
+2020. How do {Elite} {Soccer} {Teams} {Perform} to {Ball} {Recovery}?
+{Effects} of {Tactical} {Modelling} and {Contextual} {Variables} on the
+{Defensive} {Patterns} of {Play}. \emph{Journal of Human Kinetics}.
+73:165--179. DOI:
+\href{https://doi.org/10.2478/hukin-2019-0141}{10.2478/hukin-2019-0141}.
+
+\bibitem[\citeproctext]{ref-fernandez-navarro_evaluating_2019}
+Fernandez-Navarro, J., Fradua, L., Zubillaga, A. \& McRobert, A.P. 2019.
+Evaluating the effectiveness of styles of play in elite soccer.
+\emph{International Journal of Sports Science \& Coaching}.
+14(4):514--527. DOI:
+\href{https://doi.org/10.1177/1747954119855361}{10.1177/1747954119855361}.
+
+\bibitem[\citeproctext]{ref-fernandez-navarro_tactical_2020}
+Fernandez-Navarro, J., Ruiz-Ruiz, C., Zubillaga, A. \& Fradua, L. 2020.
+Tactical {Variables} {Related} to {Gaining} the {Ball} in {Advanced}
+{Zones} of the {Soccer} {Pitch}: {Analysis} of {Differences} {Among}
+{Elite} {Teams} and the {Effect} of {Contextual} {Variables}.
+\emph{Frontiers in Psychology}. 10:3040. DOI:
+\href{https://doi.org/10.3389/fpsyg.2019.03040}{10.3389/fpsyg.2019.03040}.
+
+\bibitem[\citeproctext]{ref-forcher_use_2022}
+Forcher, L., Altmann, S., Forcher, L., Jekauc, D. \& Kempe, M. 2022. The
+use of player tracking data to analyze defensive play in professional
+soccer-{A} scoping review. \emph{International Journal of Sports Science
+\& Coaching}. 17(6):1567--1592.
+
+\bibitem[\citeproctext]{ref-forcher_keys_2022}
+Forcher, L., Forcher, L., Altmann, S., Jekauc, D. \& Kempe, M. 2022. The
+keys of pressing to gain the ball -- {Characteristics} of defensive
+pressure in elite soccer using tracking data. \emph{Science and Medicine
+in Football}. 0(0):1--9. DOI:
+\href{https://doi.org/10.1080/24733938.2022.2158213}{10.1080/24733938.2022.2158213}.
+
+\bibitem[\citeproctext]{ref-forcher_success_2023}
+Forcher, L., Forcher, L., Altmann, S., Jekauc, D. \& Kempe, M. 2023. The
+{Success} {Factors} of {Rest} {Defense} in {Soccer} -- {A}
+{Mixed}-{Methods} {Approach} of {Expert} {Interviews}, {Tracking}
+{Data}, and {Machine} {Learning}. \emph{Journal of Sports Science \&
+Medicine}. 22(4):707--725. DOI:
+\href{https://doi.org/10.52082/jssm.2023.707}{10.52082/jssm.2023.707}.
+
+\bibitem[\citeproctext]{ref-forcher_is_2023}
+Forcher, L., Forcher, L., Wäsche, H., Jekauc, D., Woll, A., Gross, T. \&
+Altmann, S. 2023. Is ball-possession style more physically demanding
+than counter-attacking? {The} influence of playing style on match
+performance in professional soccer. \emph{Frontiers in Psychology}. 14.
+Available:
+\url{https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1197039}
+{[}2024, March 05{]}.
+
+\bibitem[\citeproctext]{ref-forcher_leander_is_2024}
+Forcher, Leander, Forcher, Leon, Altmann, Stefan, Jekauc, Darko \&
+Kempe, Matthias. 2024. Is a {Compact} {Organization} {Important} for
+{Defensive} {Success} in {Elite} {Soccer}? -- {Analysis} {Based} on
+{Player} {Tracking} {Data}. \emph{International Journal of Sports
+Science \& Coaching}. 19(2):757--768. Available:
+\url{https://journals.sagepub.com/doi/abs/10.1177/17479541231172695}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-forcher_leander_prediction_2024}
+Forcher, Leander, Beckmann, Tobias, Wohak, Oliver, Romeike, Christian,
+Graf, Ferdinand \& Altmann, Stefan. 2024. Prediction of {Defensive}
+{Success} in {Elite} {Soccer} using {Machine} {Learning} - {Tactical}
+{Analysis} of {Defensive} {Play} using {Tracking} {Data} and
+{Explainable} {AI}. \emph{Science and Medicine in Football}.
+8(4):317--332. Available:
+\url{https://www.tandfonline.com/doi/abs/10.1080/24733938.2023.2239766}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-ghezzi2024}
+Ghezzi, E. \& Sotudeh, H. 2024. Hudl StatsBomb conference 2024. Old
+Trafford, Manchester, United Kingdom: StatsBomb. 13. Available:
+\url{https://statsbomb.com/wp-content/uploads/2024/10/Match-Phases-In-Practice-Ghezzi-and-Sotudeh.pdf}.
+
+\bibitem[\citeproctext]{ref-goes_unlocking_2021}
+Goes, F.R., Meerhoff, L.A., Bueno, M.J.O., Rodrigues, D.M., Moura, F.A.,
+Brink, M.S., Elferink-Gemser, M.T., Knobbe, A.J., et al. 2021. Unlocking
+the potential of big data to support tactical performance analysis in
+professional soccer: {A} systematic review. \emph{European Journal of
+Sport Science}. 21(4):481--496. DOI:
+\href{https://doi.org/10.1080/17461391.2020.1747552}{10.1080/17461391.2020.1747552}.
+
+\bibitem[\citeproctext]{ref-gonzalez-rodenas_effects_2024}
+González-Rodenas, J., Martínez López, A. \& Pérez Gay, R. 2024. Effects
+of contextual and tactical dimensions on the creation of goal-scoring
+opportunities in {U12} and {U13} elite {Spanish} soccer teams.
+\emph{International Journal of Sports Science \& Coaching}.
+19(1):202--213. Available:
+\url{https://journals.sagepub.com/doi/abs/10.1177/17479541221141816}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-herold_machine_2019}
+Herold, M., Goes, F., Nopp, S., Bauer, P., Thompson, C. \& Meyer, T.
+2019. Machine learning in men's professional football: {Current}
+applications and future directions for improving attacking play.
+\emph{International Journal of Sports Science \& Coaching}.
+14(6):798--817. DOI:
+\href{https://doi.org/10.1177/1747954119879350}{10.1177/1747954119879350}.
+
+\bibitem[\citeproctext]{ref-hubacek_deep_2019}
+Hubáček, O., Šourek, G. \& Železný, F. 2019. Deep {Learning} from
+{Spatial} {Relations} for {Soccer} {Pass} {Prediction}. In \emph{Machine
+{Learning} and {Data} {Mining} for {Sports} {Analytics}}. U. Brefeld, J.
+Davis, J. Van Haaren, \& A. Zimmermann, Eds. (Lecture {Notes} in
+{Computer} {Science}). Cham: Springer International Publishing.
+159--166. DOI:
+\href{https://doi.org/10.1007/978-3-030-17274-9_14}{10.1007/978-3-030-17274-9\_14}.
+
+\bibitem[\citeproctext]{ref-johnson_michael_mastering_2024}
+Johnson, M. 2024. Available:
+\url{https://goralsoccer.com/strategies/pressing-strategies-against-different-formations/}.
+
+\bibitem[\citeproctext]{ref-ju_contextualised_2023}
+Ju, W., Doran, D., Hawkins, R., Evans, M., Laws, A. \& Bradley, P. 2023.
+Contextualised {High}-{Intensity} {Running} {Profiles} of {Elite}
+{Football} players with {Reference} to {General} and {Specialised}
+{Tactical} {Roles}. \emph{Biology of Sport}. 40(1):291--301.
+
+\bibitem[\citeproctext]{ref-kazi_tani_events_2019}
+Kazi Tani, L.F., Ghomari, A. \& Kazi Tani, M.Y. 2019. Events recognition
+for a semi-automatic annotation of soccer videos: A study based deep
+learning. \emph{The International Archives of the Photogrammetry, Remote
+Sensing and Spatial Information Sciences}. 42:135--141. DOI:
+\href{https://doi.org/10.5194/isprs-archives-XLII-2-W16-135-2019}{10.5194/isprs-archives-XLII-2-W16-135-2019}.
+
+\bibitem[\citeproctext]{ref-kerr_applying_2015}
+Kerr, M.G.S.(Matthew.G.S. 2015. Applying machine learning to event data
+in soccer. Thesis. Massachusetts Institute of Technology. Available:
+\url{https://dspace.mit.edu/handle/1721.1/100607} {[}2024, March 04{]}.
+
+\bibitem[\citeproctext]{ref-kim_soccercpd_2022}
+Kim, H., Kim, B., Chung, D., Yoon, J. \& Ko, S.-K. 2022. {SoccerCPD}:
+{Formation} and {Role} {Change}-{Point} {Detection} in {Soccer}
+{Matches} {Using} {Spatiotemporal} {Tracking} {Data}. In
+\emph{Proceedings of the 28th {ACM} {SIGKDD} {Conference} on {Knowledge}
+{Discovery} and {Data} {Mining}}. ({KDD} '22). New York, NY, USA:
+Association for Computing Machinery. 3146--3156. DOI:
+\href{https://doi.org/10.1145/3534678.3539150}{10.1145/3534678.3539150}.
+
+\bibitem[\citeproctext]{ref-klemp_-play_2021}
+Klemp, M., Wunderlich, F. \& Memmert, D. 2021. In-play forecasting in
+football using event and positional data. \emph{Scientific Reports}.
+11(1):24139. DOI: \url{https://doi.org/10.1038/s41598-021-03157-3}.
+
+\bibitem[\citeproctext]{ref-knuth84}
+Knuth, D.E. 1984. Literate programming. \emph{Comput. J.} 27(2):97--111.
+DOI:
+\href{https://doi.org/10.1093/comjnl/27.2.97}{10.1093/comjnl/27.2.97}.
+
+\bibitem[\citeproctext]{ref-kozlova_identifying_2021}
+Kozlova, N. 2021.
+
+\bibitem[\citeproctext]{ref-kraft_justin_basics_2020}
+Kraft, J. 2020. Available:
+\url{https://miasanrot.com/tactics-blog-003-the-basics-of-pressing/}
+{[}2024, June 21{]}.
+
+\bibitem[\citeproctext]{ref-lago-ballesteros_effect_2012}
+Lago-Ballesteros, J., Lago-Peñas, C. \& Rey, E. 2012. The effect of
+playing tactics and situational variables on achieving score-box
+possessions in a professional soccer team. \emph{Journal of Sports
+Sciences}. 30(14):1455--1461. DOI:
+\href{https://doi.org/10.1080/02640414.2012.712715}{10.1080/02640414.2012.712715}.
+
+\bibitem[\citeproctext]{ref-leander_forcher_use_2022}
+Leander, Forcher, Altmann, Stefan, Forcher, Leon, Jekauc, Darko \&
+Kempe, Matthias. 2022. The use of player tracking data to analyze
+defensive play in professional soccer - {A} scoping review.
+\emph{International Journal of Sports Science \& Coaching}.
+17(6):1567--1592. DOI: \url{https://doi.org/10.1177/174795412210757}.
+
+\bibitem[\citeproctext]{ref-link_data_2018}
+Link, D. 2018. Data {Analytics} in {Professional} {Soccer}.
+\emph{Springer Vieweg, Wiesbaden}. 10. DOI:
+\href{https://doi.org/10.1007/978-3-658-21177-6}{10.1007/978-3-658-21177-6}.
+
+\bibitem[\citeproctext]{ref-liu_characterization_2024}
+Liu, Y. 2024. Characterization of {Immediate} {Pressing} {Tactics} in
+{Soccer} in the age of {Artificial} {Intelligence}. \emph{Applied
+Mathematics and Nonlinear Sciences}. 9(1). DOI:
+\href{https://doi.org/10.2478/amns.2023.2.01415}{10.2478/amns.2023.2.01415}.
+
+\bibitem[\citeproctext]{ref-liu_deep_2020}
+Liu, G., Luo, Y., Schulte, O. \& Kharrat, T. 2020. Deep soccer
+analytics: Learning an action-value function for evaluating soccer
+players. \emph{Data Mining and Knowledge Discovery}. 34(5):1531--1559.
+DOI:
+\href{https://doi.org/10.1007/s10618-020-00705-9}{10.1007/s10618-020-00705-9}.
+
+\bibitem[\citeproctext]{ref-llana_right_2020}
+Llana, S., Madrero, P. \& Fernández, J. 2020. The right place at the
+right time: {Advanced} off-ball metrics for exploiting an opponent's
+spatial weaknesses in soccer. In \emph{Proceedings of the 14th {MIT}
+{Sloan} {Sports} {Analytics} {Conference}}.
+
+\bibitem[\citeproctext]{ref-low_exploring_2018}
+Low, B., Boas, G.V., Meyer, L., Lizaso, E., Hoitz, F., Leite, N. \&
+Gonçalves, B. 2018. Exploring the effects of deep-defending vs
+high-press on footballers' tactical behaviour, physical and
+physiological performance: {A} pilot study. \emph{Motriz: Revista de
+Educação Física}. 24(2):e1018171. DOI:
+\href{https://doi.org/10.1590/S1980-6574201800020009}{10.1590/S1980-6574201800020009}.
+
+\bibitem[\citeproctext]{ref-low_systematic_2020}
+Low, B., Coutinho, D., Gonçalves, B., Rein, R., Memmert, D. \& Sampaio,
+J. 2020. A {Systematic} {Review} of {Collective} {Tactical} {Behaviours}
+in {Football} {Using} {Positional} {Data}. \emph{Sports Medicine}.
+50(2):343--385. DOI:
+\href{https://doi.org/10.1007/s40279-019-01194-7}{10.1007/s40279-019-01194-7}.
+
+\bibitem[\citeproctext]{ref-low_porous_2021}
+Low, B., Rein, R., Raabe, D., Schwab, S. \& Memmert, D. 2021. The porous
+high-press? {An} experimental approach investigating tactical behaviours
+from two pressing strategies in football. \emph{Journal of Sports
+Sciences}. 39(19):2199--2210. DOI:
+\href{https://doi.org/10.1080/02640414.2021.1925424}{10.1080/02640414.2021.1925424}.
+
+\bibitem[\citeproctext]{ref-low_defending_2022}
+Low, B., Rein, R., Schwab, S. \& Memmert, D. 2022. Defending in 4-4-2 or
+5-3-2 formation? {Small} differences in footballers' collective tactical
+behaviours. \emph{Journal of Sports Sciences}. 40(3):351--363.
+
+\bibitem[\citeproctext]{ref-luo_inverse_2020}
+Luo, Y. 2020. Inverse reinforcement learning for team sports: {Valuing}
+actions and players. PhD thesis. Simon Fraser University. Available:
+\url{https://summit.sfu.ca/item/20564} {[}2024, March 06{]}.
+
+\bibitem[\citeproctext]{ref-ma_analysis_2020}
+Ma, J. 2020. An {Analysis} of {Formation} {Disruption} in {Soccer}.
+\{PhD\} \{Thesis\}.
+
+\bibitem[\citeproctext]{ref-maleki_ball_2016}
+Maleki, M., Dadkhah, K. \& Alahvisi, F. 2016. Ball {Recovery}
+{Consistency} as a {Performance} {Indicator} in {Elite} {Soccer}.
+\emph{Revista Brasileira de Cineantropometria \& Desempenho Humano}.
+18(1):72--81. DOI:
+\href{https://doi.org/10.5007/1980-0037.2016v18n1p72}{10.5007/1980-0037.2016v18n1p72}.
+
+\bibitem[\citeproctext]{ref-memmert_data_2018}
+Memmert, D. \& Raabe, D. 2018. \emph{Data {Analytics} in {Football}:
+{Positional} {Data} {Collection}, {Modelling} and {Analysis}}. 1st ed.
+Taylor \& Francis. Available:
+\url{https://books.google.co.za/books?id=O9tdDwAAQBAJ}.
+
+\bibitem[\citeproctext]{ref-memmert_data_2023}
+Memmert, D. \& Raabe, D. 2023. \emph{Data {Analytics} in {Football}:
+{Positional} {Data} {Collection}, {Modelling} and {Analysis}}. 2nd ed.
+Taylor \& Francis. Available:
+\url{https://books.google.co.za/books?id=-ILkEAAAQBAJ}.
+
+\bibitem[\citeproctext]{ref-merckx_measuring_2021}
+Merckx, S., Robberechts, P., Euvrard, Y. \& Davis, J. 2021. Measuring
+the {Effectiveness} of {Pressing} in {Soccer}. In \emph{Workshop on
+{Machine} {Learning} and {Data} {Mining} for {Sports} {Analytics}}.
+
+\bibitem[\citeproctext]{ref-merhej_what_2021}
+Merhej, C., Beal, R.J., Matthews, T. \& Ramchurn, S. 2021. What
+{Happened} {Next}? {Using} {Deep} {Learning} to {Value} {Defensive}
+{Actions} in {Football} {Event}-{Data}. In \emph{Proceedings of the 27th
+{ACM} {SIGKDD} {Conference} on {Knowledge} {Discovery} \& {Data}
+{Mining}}. ({KDD} '21). New York, NY, USA: Association for Computing
+Machinery. 3394--3403. DOI:
+\href{https://doi.org/10.1145/3447548.3467090}{10.1145/3447548.3467090}.
+
+\bibitem[\citeproctext]{ref-michael_analysing_2018}
+Michael, O., Obst, O., Schmidsberger, F. \& Stolzenburg, F. 2018.
+Analysing {Soccer} {Games} with {Clustering} and {Conceptors}. In
+\emph{{RoboCup} 2017: {Robot} {World} {Cup} {XXI}}. H. Akiyama, O. Obst,
+C. Sammut, \& F. Tonidandel, Eds. (Lecture {Notes} in {Computer}
+{Science}). Cham: Springer International Publishing. 120--131. DOI:
+\href{https://doi.org/10.1007/978-3-030-00308-1_10}{10.1007/978-3-030-00308-1\_10}.
+
+\bibitem[\citeproctext]{ref-min_performances_2015}
+Min, D.K., Lee, Y.-S. \& Kim, Y.-R. 2015. Performances analysis of
+football matches. \emph{Journal of the Korean Data and Information
+Science Society}. 26(1):187--196. DOI:
+\href{https://doi.org/10.7465/jkdi.2015.26.1.187}{10.7465/jkdi.2015.26.1.187}.
+
+\bibitem[\citeproctext]{ref-modric_influence_2022}
+Modric, T., Malone, J.J., Versic, S., Andrzejewski, M., Chmura, P.,
+Konefał, M., Drid, P. \& Sekulic, D. 2022. The influence of physical
+performance on technical and tactical outcomes in the {UEFA} {Champions}
+{League}. \emph{BMC Sports Science, Medicine and Rehabilitation}.
+14(1):179. DOI:
+\href{https://doi.org/10.1186/s13102-022-00573-4}{10.1186/s13102-022-00573-4}.
+
+\bibitem[\citeproctext]{ref-modric_influence_2023}
+Modric, T., Gabrilo, G. \& Sekulic, D. 2023. Influence of {Team}
+{Pressing} on {Match} {Performance} in {Highest}-{Level} {Soccer};
+{Preliminary} {Report}. \emph{Kinesiologia Slovenica}. 29(1):138. DOI:
+\href{https://doi.org/10.52165/kinsi.29.1.138-148}{10.52165/kinsi.29.1.138-148}.
+
+\bibitem[\citeproctext]{ref-morgan_will_how_2018}
+Morgan, W. 2018. Available:
+\url{https://statsbomb.com/articles/soccer/how-statsbomb-data-helps-measure-counter-pressing/}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-nascimento_generalized_2023}
+Nascimento, R.F.M. do \& Rios-Neto, H.M. 2023. DOI:
+\href{https://doi.org/10.48550/arXiv.2307.04215}{10.48550/arXiv.2307.04215}.
+
+\bibitem[\citeproctext]{ref-navarro_analysis_2018}
+Navarro, F.J.F. 2018. Analysis of styles of play in soccer and their
+effectiveness. http://purl.org/dc/dcmitype/\{Text\}. Universidad de
+Granada. Available:
+\url{https://dialnet.unirioja.es/servlet/tesis?codigo=216465} {[}2024,
+March 05{]}.
+
+\bibitem[\citeproctext]{ref-pappalardo_luca_public_2019}
+Pappalardo, Luca, Cintia, Paolo, Rossi, Alessio, Massucco, Emanuele,
+Ferragina, Paolo, Pedreschi, Dino \& Giannotti, Fosca. 2019. A public
+data set of spatio-temporal match events in soccer competitions.
+\emph{Scientific Data}. 6(1):1--15. Available:
+\url{https://www.nature.com/articles/s41597-019-0247-7} {[}2024, March
+05{]}.
+
+\bibitem[\citeproctext]{ref-plakias_tactical_2024}
+Plakias, S., Tsatalas, T., Armatas, V., Tsaopoulos, D. \& Giakas, G.
+2024. Tactical {Situations} and {Playing} {Styles} as {Key}
+{Performance} {Indicators} in {SoccerTactical} {Situations} and
+{Playing} {Styles} as {Key} {Performance} {Indicators} in {Soccer}.
+\emph{Journal of Functional Morphology and Kinesiology}. 9(2):88. DOI:
+\url{https://doi.org/10.3390/jfmk9020088}.
+
+\bibitem[\citeproctext]{ref-rein_big_2016}
+Rein, R. \& Memmert, D. 2016. Big data and tactical analysis in elite
+soccer: Future challenges and opportunities for sports science.
+\emph{SpringerPlus}. 5(1):1410. DOI:
+\href{https://doi.org/10.1186/s40064-016-3108-2}{10.1186/s40064-016-3108-2}.
+
+\bibitem[\citeproctext]{ref-rico-gonzalez_markel_machine_2023}
+Rico-González, Markel, Pino-Ortega, José, Méndez, Amaia, Clemente,
+Filipe Manuel \& Baca, Arnold. 2023. Machine learning {Application} in
+{Soccer}: {A} {Systematic} {Review}. \emph{Biology of Sport}.
+40(1):249--263. Available:
+\url{https://www.termedia.pl/Machine-learning-application-in-soccer-a-systematic-review,78,46287,0,1.html}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-robberechts_valuing_2019}
+Robberechts, P. 2019. Valuing the {Art} of {Pressing}. In \emph{Valuing
+the {Art} of {Pressing}}. V. 11.
+
+\bibitem[\citeproctext]{ref-robberechts_ecml_2024}
+Robberechts, P., Rudolph, Y., Van Roy, M. \& Zimmermann, A. 2024.
+Available: \url{https://dtai.cs.kuleuven.be/tutorials/sports/ecml2024/}.
+
+\bibitem[\citeproctext]{ref-roy_valuing_2020}
+Roy, M.V., Robberechts, P., Decroos, T. \& Davis, J. 2020. Valuing
+{On}-the-{Ball} {Actions} in {Soccer}: {A} {Critical} {Comparison} of
+{xT} and {VAEP}. In \emph{Proceedings of the {AAAI}-20 {Workshop} on
+{Artifical} {Intelligence} in {Team} {Sports}. {AI} in {Team} {Sports}
+{Organising} {Committee}}.
+
+\bibitem[\citeproctext]{ref-ruan_quantifying_2022}
+Ruan, L., Ge, H., Shen, Y., Pu, Z., Zong, S. \& Cui, Y. 2022.
+Quantifying the effectiveness of defensive playing styles in the
+{Chinese} {Football} {Super} {League}. \emph{Frontiers in Psychology}.
+13:899199.
+
+\bibitem[\citeproctext]{ref-sahasrabudhe_amod_graph_2023}
+Sahasrabudhe, Amod \& Bekkers, Joris. 2023. A {Graph} {Neural} {Network}
+{Deep}-{Dive} into {Successful} {Counterattacks}.
+
+\bibitem[\citeproctext]{ref-sanford_group_2020}
+Sanford, R., Gorji, S., Hafemann, L.G., Pourbabaee, B. \& Javan, M.
+2020. Group {Activity} {Detection} {From} {Trajectory} and {Video}
+{Data} in {Soccer}. 898--899. Available:
+\url{https://openaccess.thecvf.com/content_CVPRW_2020/html/w53/Sanford_Group_Activity_Detection_From_Trajectory_and_Video_Data_in_Soccer_CVPRW_2020_paper.html}
+{[}2024, March 06{]}.
+
+\bibitem[\citeproctext]{ref-scotognella_simulations_2021}
+Scotognella, F. 2021.
+
+\bibitem[\citeproctext]{ref-noauthor_statsbomb_2022}
+{``{StatsBomb} {Privacy} {Policy}''}. 2022. Available:
+\url{https://statsbomb.com/privacy-policy/}.
+
+\bibitem[\citeproctext]{ref-sumpter_soccermatics_2016}
+Sumpter, D. 2016. \emph{Soccermatics: {Mathematical} {Adventures} in the
+{Beautiful} {Game}}. 1st ed. Bloomsbury Publishing. Available:
+\url{https://books.google.co.za/books?id=CoZVCwAAQBAJ}.
+
+\bibitem[\citeproctext]{ref-sun_cracking_2020}
+Sun, X., Davis, J., Schulte, O. \& Liu, G. 2020. Cracking the {Black}
+{Box}: {Distilling} {Deep} {Sports} {Analytics}. In \emph{Proceedings of
+the 26th {ACM} {SIGKDD} {International} {Conference} on {Knowledge}
+{Discovery} \& {Data} {Mining}}. ({KDD} '20). New York, NY, USA:
+Association for Computing Machinery. 3154--3162. DOI:
+\href{https://doi.org/10.1145/3394486.3403367}{10.1145/3394486.3403367}.
+
+\bibitem[\citeproctext]{ref-tewari_soccer_2019}
+Tewari, A., Parwani, T., Phanse, A., Sharma, A. \& Shetty, A. 2019.
+Soccer {Analytics} using {Machine} {Learning}. \emph{International
+Journal of Computer Applications}. 181(50):54--56. Available:
+\url{https://ijcaonline.org/archives/volume181/number50/30504-2019918773/}
+{[}2024, March 05{]}.
+
+\bibitem[\citeproctext]{ref-toda_evaluation_2022}
+Toda, K., Teranishi, M., Kushiro, K. \& Fujii, K. 2022. Evaluation of
+soccer team defense based on prediction models of ball recovery and
+being attacked: {A} pilot study. \emph{Plos one}. 17(1):e0263051.
+
+\bibitem[\citeproctext]{ref-tong_analysis_2022}
+Tong, Q., Yao, W., Lv, W. \& Zeng, D. 2022. Analysis of {Formations} and
+{Game} {Styles} in {Soccer}. In \emph{2022 {IEEE} 24th {International}
+{Workshop} on {Multimedia} {Signal} {Processing} ({MMSP})}. IEEE. 1--5.
+DOI:
+\href{https://doi.org/10.1109/MMSP55362.2022.9949992}{10.1109/MMSP55362.2022.9949992}.
+
+\bibitem[\citeproctext]{ref-trainor_colin_defensive_2014}
+Trainor, C. 2014. Available:
+\url{https://statsbomb.com/articles/soccer/defensive-metrics-measuring-the-intensity-of-a-high-press/}
+{[}2024, March 13{]}.
+
+\bibitem[\citeproctext]{ref-van_roy_optimally_2021}
+Van Roy, M., Robberechts, P. \& Davis, J. 2021. Optimally {Disrupting}
+{Opponent} {Build}-ups. In \emph{Proceedings of the 2021 {StatsBomb}
+{Conference}}. London, United Kingdom. 1--16.
+
+\bibitem[\citeproctext]{ref-vicente_why_2024}
+Vicente, L.N., Alleck, T., Giovannelli, T., Mitchell, R. \& Remen, O.
+2024. Why is soccer so popular: {Understanding} underdog achievement and
+randomness in team ball sports. \emph{arXiv preprint arXiv:2404.06626}.
+
+\bibitem[\citeproctext]{ref-coaches_voice_4-3-3_2022}
+Voice, C. 2022. Available:
+\url{https://learning.coachesvoice.com/cv/4-3-3-football-tactics-explained-formation-liverpool-klopp-barcelona-guardiola/\#:~:text=The\%204\%2D3\%2D3\%20is\%20also\%20a\%20good\%20formation\%20from}.
+
+\bibitem[\citeproctext]{ref-wilson_inverting_2010}
+Wilson, J. 2010. \emph{Inverting the {Pyramid}: {The} {History} of
+{Football} {Tactics}}. 1st ed. Orion Books Ltd. Available:
+\url{https://books.google.co.za/books?id=qYSAhJn-srwC}.
+
+\bibitem[\citeproctext]{ref-yu_soccer_2019}
+Yu, J., Lei, A. \& Hu, Y. 2019. Soccer {Video} {Event} {Detection}
+{Based} on {Deep} {Learning}. In \emph{{MultiMedia} {Modeling}}. I.
+Kompatsiaris, B. Huet, V. Mezaris, C. Gurrin, W.-H. Cheng, \& S.
+Vrochidis, Eds. (Lecture {Notes} in {Computer} {Science}). Cham:
+Springer International Publishing. 377--389. DOI:
+\href{https://doi.org/10.1007/978-3-030-05716-9_31}{10.1007/978-3-030-05716-9\_31}.
+
+\bibitem[\citeproctext]{ref-zhang_influence_2024}
+Zhang, W., Gong, B., Tao, R., Zhou, F., Ruano, M.Á.G. \& Zhou, C. 2024.
+The influence of tactical formation on physical and technical
+performance across playing positions in the {Chinese} super league.
+\emph{Scientific Reports}. 14(1):2538. Available:
+\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10828377/} {[}2024,
+June 20{]}.
+
+\bibitem[\citeproctext]{ref-zivkovic_worldfootballr_2025}
+Zivkovic, J. 2025. \emph{{worldfootballR}: {Extract} and {Clean} {World}
+{Football} ({Soccer}) {Data}}. Available:
+\url{https://github.com/jaseziv/worldfootballr}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}

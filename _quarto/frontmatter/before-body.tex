@@ -1,0 +1,70 @@
+% --- Line Spacing --- %
+% About 1.5-spaced
+\setlength{\textbaselineskip}{18pt plus2pt minus1pt}
+
+% Spacing for roman-numbered pages (acknowledgements, table of contents, etc.)
+\setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt}
+
+% Document spacing
+\setlength{\baselineskip}{\textbaselineskip}
+
+% --- Section Number Depth --- %
+\setcounter{secnumdepth}{3} % Number sections, subsections, and subsubsections
+% --- Table of Contents Depth --- %
+\setcounter{tocdepth}{3} % Include sections, subsections, and subsubsections in the table of contents
+
+% --- Abstract --- %
+\begin{abstractseparate}
+  \input{frontmatter/03-abstract.txt}
+\end{abstractseparate}
+
+\newpage
+\thispagestyle{empty} % No page number on this page
+\null
+\newpage
+\pagenumbering{roman}
+
+\begin{romanpages}
+
+% --- Title page --- %
+\maketitle
+
+% --- Dedication page --- %
+\ifdefined\dedication
+  \begin{dedication}
+    \input{frontmatter/01-dedication.txt}
+  \end{dedication}
+  
+% --- Declaration page --- %
+  \begin{declaration}
+  \addcontentsline{toc}{chapter}{Declaration}
+      \input{frontmatter/02-declaration.txt}
+    \vspace{0.5em}
+    %\begin{flushright}
+    %  \includegraphics[width=4cm]{frontmatter/figueres/signature.png}
+    %\end{flushright} 
+    \vspace{0.5em}
+    \begin{flushright}
+      {\large \textit{$author$}}
+    \end{flushright}
+    \vspace{0.5em}
+    \noindent Word Count: $wordcount$
+    \vfill
+    \noindent This thesis was conducted under the supervision of $supervisor$ \\
+    \textit{$supervisor_title$} \\
+    Email: \texttt{$supervisor_email$}.
+    \vspace{2cm}
+  \end{declaration}
+  
+% --- Abstract --- %
+  \begin{abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+    \input{frontmatter/03-abstract.txt}
+  \end{abstract}
+  
+  
+% --- Acknowledgements --- %
+  \begin{acknowledgements}
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+    \input{frontmatter/04-acknowledgements.txt}
+  \end{acknowledgements}

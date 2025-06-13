@@ -2,43 +2,58 @@ project:
   type: book
 
 book:
-  title: "Quantifying Pressing Effectiveness and Its Impact on Formations in Football"
-  subtitle: "Minor Dissertation presented in partial fulfilment of the requirements for the degree of Master in Philosophy in Data Science"
-  date: "2025-06-04"
-  author: 
-    - name: Kenneth Ssekimpi
-      orcid: 0000-0000-0000-0000
-      email: SSKKEN001@myuct.ac.za
-      affiliation: 
-        name: University of Cape Town
-        faculty: Faculty of Science
-        department: Department of Statistical Sciences
-        address: Private Bag X3, Rondebosch 7701, South Africa
-      corresponding: true
-
-  # supervisor:
-  #   - name: Neil Watson
-  #     email: nm.watson@uct.ac.za
-  #     title: Lecturer
-      
-    
-      
-  
+  title: Quantifying Pressing Effectiveness and Its Impact on Formations in Football
+  author: Kenneth Ssekimpi
   chapters:
     - index.qmd
-    - intro.qmd
+    - chapters/chapter-00/_introduction.qmd
     # - summary.qmd
-    - references.qmd
+    - backmatter/bibliography/_references.qmd
+  
+metadata:
+  student_number: SSKKEN001
+  degree: Master in Philosophy in Data Science
+  course: STA5093W - Data Science Minor Dissertation
+  university: University of Cape Town
+  faculty: Faculty of Science
+  department: Department of Statistical Sciences
+  year: 2025
+  supervisor: Mr Neil Watson
+  supervisor_title: Lecturer, Department of Statistical Sciences, University of Cape Town
+  supervisor_email: nm.watson@uct.ac.za
+  wordcount: 15000
+  keywords: [Football Analytics, Pressing, VPEP, Machine Learning, Defensive Metrics]
+  bibliography: backmatter/bibliography/references.bib
+  csl: harvard-university-of-cape-town.csl
+  citeproc: true
+  appendix-cite-as: display
+  google-scholar: true
+  nocite: "@*"
+  crossref:
+    chapters: true
+  toc: true
+  number-sections: true
+  top-level-division: chapter
 
-bibliography: references.bib
 
 format:
-  html:
-    theme:
-      - cosmo
-      - brand
   pdf:
-    documentclass: scrreprt
+    documentclass: uct-thesis-template
+    classoption: [twoside]
+    papersize: a4
+    # geometry: hmargin={3.6cm, 2.6cm}, vmargin={2.5cm, 2.7cm}
+    template-partials:
+      - frontmatter/title.tex
+      - frontmatter/before-body.tex
+      - frontmatter/toc.tex
+    include-in-header: 
+      - frontmatter/header.tex
+    keep-tex: true
+    output-file: ssekimpi-mphil2025.pdf
+    
+  html:
+    theme: cosmo
+    toc: true
 
 editor: visual
 
