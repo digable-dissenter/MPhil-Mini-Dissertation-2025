@@ -23,7 +23,7 @@
 
     \vspace{3.5\baselineskip}
 
-    % Title.
+    % Title
 	\noindent
     \makebox[\textwidth][l]{%
         \parbox{\dimexpr\textwidth-2.5cm\relax}{
@@ -32,12 +32,14 @@
         }
     }
 
-    \vspace{0.8\baselineskip}    
+    \vspace{0.8\baselineskip}
+
+    % Subtitle   
 
     \vspace{35pt}
 
-    % Author.
-    {\noindent\bfseries\fontsize{14}{19}\selectfont\GetFirstAuthor}
+    % Author
+    {\noindent\bfseries\fontsize{14}{19}\selectfont\GetAuthor}
 
     
 
@@ -57,23 +59,23 @@
     
     \vfill
 	
-    % Faculty.
+    % Faculty
 	{\noindent\fontsize{10}{12}\selectfont\GetFaculty}
 	
-    % Department.
+    % Department
 	{\noindent\fontsize{10}{12}\selectfont\GetDepartment}
 
-    % Degree.
+    % Degree
 	{\noindent\fontsize{10}{12}\selectfont\GetDegree}
 
-    % Course.
+    % Course
     \ifdefined\GetCourse
         {\noindent\fontsize{10}{12}\selectfont\GetCourse}
 	\fi
 
     \vspace{45pt}
 
-    % Thesis option.
+    % Thesis option
 	{\noindent\fontsize{10}{12}\itshape\selectfont\GetThesisType}
 
     \vspace{45pt}
