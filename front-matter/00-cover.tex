@@ -1,0 +1,27 @@
+\ifthenelse{\equal{\CoverOption}{classic}}{
+    \newcommand\BackgroundPicCover{
+        \put(0,0){
+            \parbox[b][\paperheight]{\paperwidth}{
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{figures/theme/Cover-BG.pdf}
+                \vfill
+            }
+        }
+    }
+
+}
+{
+    \newcommand\BackgroundPicCover{
+        \put(0,0){
+            \parbox[b][\paperheight]{\paperwidth}{
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth,height=\paperheight]{}
+            }
+        }
+    }
+}
+    \vfill
+    \centering
+    \includegraphics[width=\paperwidth,height=\paperheight]{}
