@@ -1,7 +1,12 @@
+% frontmatter/header.tex
+
+% --- Core packages --- %
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{CormorantGaramond}
 \usepackage{hologo}
+\usepackage{natbib}
+\citestyle{aysep={,}}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{setspace}
@@ -10,19 +15,55 @@
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{siunitx}
+\usepackage{siunitx}
 \usepackage{lscape}
 \usepackage{textgreek}
 
+% --- Football analytics & data science packages --- %
+% --- Enhanced table support for data presentation --- %
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{threeparttable}
+
+% --- Mathematical notation for ML --- %
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{algorithm2e}
+
+% Enhanced referencing
+\usepackage{cleveref}
+
+% --- Scientific units config --- %
+\sisetup{
+    per-mode=symbol,
+    group-separator={,},
+    group-minimum-digits=4
+}
+
+% --- Hyperlinks for PDF navigation --- %
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+
+% --- Code listings for Python/R --- %
 \usepackage{listings}
 \usepackage{xcolor}
 
-% New colours
+% New colours for code highlighting
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+\definecolor{footballgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{footballblue}{rgb}{0.0, 0.3, 0.7}
 
-% Code listing style
+
+
+% --- General code listing style --- %
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
@@ -42,20 +83,76 @@
     tabsize=2
 }
 
-% define Javascript language for listings
-\lstdefinelanguage{JavaScript}{
-    keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-    keywordstyle=\color{blue}\bfseries,
-    ndkeywords={class, export, boolean, throw, implements, import, this},
-    ndkeywordstyle=\color{darkgray}\bfseries,
-    identifierstyle=\color{black},
-    sensitive=false,
-    comment=[l]{//},
-    morecomment=[s]{/*}{*/},
-    commentstyle=\color{purple}\ttfamily,
-    stringstyle=\color{red}\ttfamily,
+% define Python language for listings
+\lstdefinelanguage{Python}{
+    keywords={False, None, True, and, as, assert, break, class, continue, def, del, elif, else, except, exec, finally, for, from, global, if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, with, yield},
+    keywordstyle=\color{footballblue}\bfseries,
+    ndkeywords={self, cls, pandas, numpy, sklearn, matplotlib, seaborn},
+    ndkeywordstyle=\color{footballgreen}\bfseries,
+    sensitive=true,
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{codepurple}\ttfamily,
+    showstringspaces=false,
+    morecomment=[l]{\#},
     morestring=[b]',
     morestring=[b]"
 }
+
+\lstdefinelanguage{R}{
+    keywords={if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_character_, NA_complex},
+    keywordstyle=\color{footballblue}\bfseries,
+    ndkeywords={library, require, source, setwd, getwd, apply, lapply, sapply, tapply, mapply, ggplot2, dplyr, tidyr},
+    ndkeywordstyle=\color{footballgreen}\bfseries,
+    sensitive=true,
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{codepurple}\ttfamily,
+    showstringspaces=false,
+    morecomment=[l]{\#},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstdefinelanguage{SQL}{
+    keywords={SELECT, FROM, WHERE, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, TABLE, DATABASE, INDEX, VIEW, JOIN, LEFT, RIGHT, INNER, OUTER, ON, GROUP, BY, ORDER, HAVING, AS, AND, OR, NOT, NULL, DISTINCT, COUNT, SUM, AVG, MIN, MAX},
+    keywordstyle=\color{footballblue}\bfseries,
+    ndkeywords={VARCHAR, INT, FLOAT, DATE, DATETIME, BOOLEAN},
+    ndkeywordstyle=\color{footballgreen}\bfseries,
+    sensitive=false,
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{codepurple}\ttfamily,
+    showstringspaces=false,
+    morecomment=[l]{--},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+
 % "mystyle" code listing set
-\lstset{style=mystyle, language=JavaScript}
+\lstset{style=mystyle}
+
+% -- Football visualisation packages --- %
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pdfplotsset{compat=1.18}
+\usetikzlibrary{positioning,shapes,arrows,fit,calc}
+
+% --- Football field colours --- %
+\definecolor{fieldgreen}{RGB}{34,139,34}
+\definecolor{linewhite}{RGB}{255,255,255}
+
+% --- Graphics path config --- %
+\graphicspath{{figures/}{frontmatter/figs/}{chapters/figures/}}
+
+% --- Football specific acronyms --- %
+\usepackage{acronym}
+
+% --- List of abbreviations setup --- %
+\newcommand{\listabbrevname}{List of Abbreviations}
+\newlistof{abbreviation}{abb}{\listabbrevname}
+\newcommand{\abbreviation}[2]{
+\refstepcounter{abbreviation}
+\addcontentsline{abb}{abbreviation}{\protect\numberline{\theabbreviation}#1 -- #2}
+
+% --- Custom commands for football analytics --- %
+\newcommand{\VPEP}{\textit{VPEP}}

@@ -7,17 +7,11 @@
 %
 %-------------------------- identification ---------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uct-thesis-template}[2025/06/13 UCT Thesis Class Template for Quarto]
+\ProvidesClass{uoe-thesis-template}[2023/04/30 UoE Thesis Class]
 %-------------------------- initial code -----------------------
 
-% 'Report' class for thesis structure, with 12pt font
-% 'openright' ensures chapters start on odd-numbered pages
+% JEM: Defaults to one-side, but passing 'twoside' should set everything up for that
 \LoadClass[openright,12pt]{report} 
-
-% Set line spacing to 1.5
-\linespread{1.5}\selectfont
-
-
 
 \newif\ifmc@nobind
 \mc@nobindfalse
@@ -54,20 +48,32 @@
 % These macros are used to declare arguments needed for the
 % construction of the title page and other preamble.
 
-\def\supervisors#1{\gdef\@supervisors{#1}} % The full (unabbreviated) name of the degree
-\def\degreedate#1{\gdef\@degreedate{#1}} % The year and term the degree will be officially conferred
-\def\degree#1{\gdef\@degree{#1}} % The full (unabbreviated) name of the degree
-\def\college#1{\gdef\@college{#1}} % The name of your Oxford college (eg Christ Church, Pembroke)
-\def\candidateno#1{\gdef\@candidateno{#1}} % Your candidate number (ie for master's submissions)
-\def\wordcount#1{\gdef\@wordcount{#1}} % Your word count (for master's submissions)
+\def\title#1{\gdef\@title{#1}}
+\def\author#1{\gdef\@author{#1}}
+\def\studentnumber#1{\gdef\@studentnumber{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\course#1{\gdef\@course{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\faculty#1{\gdef\@faculty{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\degreedate#1{\gdef\@degreedate{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\supervisortitle#1{\gdef\@supervisortitle{#1}}
+\def\wordcount#1{\gdef\@wordcount{#1}}
+\def\submittedtext#1{\gdef\@submittedtext{#1}}
 \newif\ifmasterssubmission
 % adds candidate number and word count in place of name and college
 \masterssubmissionfalse
 
+%% Set default values
+\gdef\@university{University of Cape Town}
+\gdef\@faculty{Faculty of Science}
+\gdef\@submittedtext{Dissertation presented for the degree of}
+
 %-----------------------------------------------------------
 % CRESTS
 %-----------------------------------------------------------
-\def\crest{{\includegraphics{frontmatter/figures/uct-logo.jpg}}}
+\def\crest{{\includegraphics{frontmatter/figs/uct-logo.jpg}}}
 
 %----------------------------------------------------------
 % Define text area of page and margin offsets
@@ -226,7 +232,7 @@
  \begin{center}
     {\Large \bfseries \@title \par}
 \ifmasterssubmission
-    {{\large \vspace*{3ex} Candidate no.\ \@candidateno} \par}
+    {{\large \vspace*{3ex} Candidate no.\ \@studentnumber} \par}
 \else
     {{\large \vspace*{2ex} \@author} \par}
 \fi
@@ -234,8 +240,8 @@
 \ifmasterssubmission
     {Thesis word count: {\@wordcount} \par}
 \else
-    {{\@college} \par}
-    {University of Edinburgh \par}
+    {{\@department} \par}
+    {University of Cape Town \par}
 \fi
 \vspace*{1ex}
     {{\it \submittedtext} \par}

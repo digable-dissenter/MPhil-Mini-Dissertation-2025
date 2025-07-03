@@ -1,0 +1,15 @@
+# Declaration
+
+I know the meaning of plagiarism and declare that all of the work in this dissertation, save for which is properly acknowledged, is my own. I have not previously submitted this work, in whole or in part, for any other degree or qualification at this or any other institution.
+
+This dissertation is submitted for the degree of \V{degree} in the \V{department}, \V{faculty}, at the \V{university}.
+
+**Signature:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ **\*\*Date:\*\*** \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\*\*{{< meta author >}}\*\*
+
+**Student Number:** {{< meta student_number >}}
+
+**Word Count:** {{< meta count >}}
+
+This minor dissertation was conducted under the supervision of {{< meta supervisor >}}.

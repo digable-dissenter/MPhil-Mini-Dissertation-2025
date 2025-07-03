@@ -1,0 +1,7 @@
+\begin{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This dissertation, titled "\@title", presents a comprehensive analysis of quantifying pressing effectiveness and its impact on formations in football. Utilising a vast dataset of StatsBomb event and 360 observations, this research explores the dynamics of defensive pressure, its correlation with tactical formations, and its implications for game outcomes. The study leverages advanced machine learning techniques to identify key metrics and patterns, contributing to a deeper understanding of tactical football analytics.
+<!-- The findings reveal significant insights into how pressing effectiveness varies across different formations and its influence on team performance. By integrating statistical analysis with tactical theory, this dissertation provides a novel perspective on the role of pressing in modern football, offering valuable implications for coaches, analysts, and players alike. -->
+<!-- The research highlights the importance of pressing as a tactical element, demonstrating its critical role in shaping game strategies and outcomes. The findings underscore the need for teams to adapt their pressing strategies based on formation and situational context, ultimately enhancing their competitive edge in matches. This dissertation contributes to the growing field of sports analytics, providing a robust framework for future research and practical applications in football strategy development. -->
+\end{abstract}
+\clearpage

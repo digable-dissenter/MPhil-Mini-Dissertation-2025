@@ -7,28 +7,38 @@ book:
   chapters:
     - index.qmd
     - chapters/chapter-00/_introduction.qmd
-    # - summary.qmd
     - backmatter/bibliography/_references.qmd
   
 metadata:
-  student_number: SSKKEN001
-  degree: Master in Philosophy in Data Science
-  course: STA5093W - Data Science Minor Dissertation
-  university: University of Cape Town
-  faculty: Faculty of Science
-  department: Department of Statistical Sciences
-  year: 2025
-  supervisor: Mr Neil Watson
-  supervisor_title: Lecturer, Department of Statistical Sciences, University of Cape Town
-  supervisor_email: nm.watson@uct.ac.za
-  wordcount: 15000
+  student_number: "SSKKEN001"
+  degree: "Master of Philosophy in Data Science"
+  course: "STA5093W - Data Science Minor Dissertation"
+  university: "University of Cape Town"
+  faculty: "Faculty of Science"
+  department: "Department of Statistical Sciences"
+  month: "November"
+  year: "2025"
+  supervisor: "Mr Neil Watson"
+  supervisor_title: "Lecturer, Department of Statistical Sciences, University of Cape Town"
+  supervisor_email: "nm.watson@uct.ac.za"
+  wordcount: "25000"
+  submission_text: "Minor Dissertation presented in partial fulfilment of the requirements for the degree of Master of Philosophy in Data Science"
+  
+  
   keywords: [Football Analytics, Pressing, VPEP, Machine Learning, Defensive Metrics]
+  
+  plagiarism_declaration: true
+  submission_type: "minor_dissertation"
+  
+  # Bibliography settings
   bibliography: backmatter/bibliography/references.bib
   csl: harvard-university-of-cape-town.csl
   citeproc: true
   appendix-cite-as: display
   google-scholar: true
-  nocite: "@*"
+  # nocite: "@*"
+  
+  # Cross-referencing and TOC settings
   crossref:
     chapters: true
   toc: true
@@ -38,16 +48,18 @@ metadata:
 
 format:
   pdf:
-    documentclass: uct-thesis-template
+    # documentclass: uct-thesis-template
     classoption: [twoside]
     papersize: a4
-    # geometry: hmargin={3.6cm, 2.6cm}, vmargin={2.5cm, 2.7cm}
-    template-partials:
-      - frontmatter/title.tex
-      - frontmatter/before-body.tex
-      - frontmatter/toc.tex
-    include-in-header: 
-      - frontmatter/header.tex
+    
+    # template-partials:
+    #   - frontmatter/title.tex
+    #   - frontmatter/before-body.tex
+    #   - frontmatter/toc.tex
+      
+    # include-in-header: 
+    # - frontmatter/header.tex
+      
     keep-tex: true
     output-file: ssekimpi-mphil2025.pdf
     
