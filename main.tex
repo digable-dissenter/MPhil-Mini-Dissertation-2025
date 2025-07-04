@@ -18,10 +18,9 @@
 \input{metadata/metadata}
 
 % ---------- Glossary and Acronyms ---------------- %
-%\loadglsentries{back-matter/04-Glossary}
-%\makeglossaries
-
-%\loadglsentries[\acronymtype]{front-matter/05-Acronyms}
+\makeglossaries
+\loadsentries{back-matter/04-glossary}
+\loadglsentries[\acronymtype]{back-matter/05-acronyms}
 
 \begin{document}
 
@@ -37,7 +36,7 @@
 \pagenumbering{roman}
 
 % ---------- Acknowledgements ---------------- %
-%\include{front-matter/03-Acknowledgements}
+\include{front-matter/03-acknowledgements}
 
 % ---------- Abstract ---------------- %
 %\include{chapters/00-Abstract}
@@ -48,17 +47,11 @@
 \listoftables
 
 % ---------- Glossary and Acronyms ---------------- %
-%\glossarytoc
-%\printglossary[type=term,title={Terminology}]
-%\printglossary[type=nomen,title={Nomenclature}]
-%\printglossary[type=param,title={Parameters}]
-%\printglossary[type=abbr,title={Abbreviations}]
-
-%\printnormalglossary
-%\acronymtoc\printacronymglossary
+\glossarytoc\printnormalglossary
+\acronymtoc\printacronymglossary
 
 % ---------- Arabic Numeration ---------------- %
-% \pagenumbering{arabic}
+\pagenumbering{arabic}
 
 % ---------- Chapters ---------------- %
 \UCTMainMatter
@@ -70,16 +63,16 @@
 \printbibliography[title={\refname},heading=bibintoc]
 
 % ---------- Appendices ---------------- %
-%\appendix
-%\input{front-matter/06-Appendices}
+\appendix
+\input{back-matter/06-appendices}
 %\input{chapters/Appendices/00-AppendixA}
 %\input{chapters/Appendices/01-AppendixB}
 
 % ---------- Annexes ---------------- %
-%\input{front-matter/07-Annexes}
+\input{back-matter/07-annexes}
 %\input{chapters/Annexes/00-AnnexA}
 
 % ---------- Back Page ---------------- %
-%\input{front-matter/08-Back-Page}
+\input{back-matter/08-back-page}
 
 \end{document}
