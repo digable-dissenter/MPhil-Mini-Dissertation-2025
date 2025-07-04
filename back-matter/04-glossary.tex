@@ -1,123 +1,78 @@
 % --- Abbreviations --- %
-\newglossary*{abbr}{Abbreviations}
 
-\newacronym[type=abbr]{xa}{xA}{expected Assists}
-\newacronym[type=abbr]{xg}{xG}{expected Goals}
-\newacronym[type=abbr]{xt}{xT}{expected Threat}
 
 % --- Parameters --- %
-\newglossary*{param}{Parameters}
 
-\newglossaryentry{param:bdp}{type=param,
-    name={\textit{BDP}},
-    description={Buildup Disruption Percentage}}
 
-\newglossaryentry{param:daxt}{type=param,
-    name={\textit{DxAT}},
-    description={Defensive Action expected Threat}}
+\newglossaryentry{batch}
+{
+    name=batch,
+    description={subset of training data used in one iteration.}
+}
 
-\newglossaryentry{param:psr}{type=param,
-    name={\textit{PSR}},
-    description={Pressing Success Rate}}
+\newglossaryentry{compactness}
+{
+    name=compactness,
+    description={the degree to which a team stays close together, minimising space for opponents to exploit.}
+}
 
-\newglossaryentry{param:vpep}{type=param,
-    name={\textit{VPEP}},
-    description={Valuing Pressure Events by Estimating Probabilities}}
+\newglossaryentry{counter}
+{
+    name=counter-attacking,
+    description={a playing philosophy focused on quickly attacking after regaining possession.}
+}
 
-\newglossaryentry{param:xg}{type=param,
-    name={\textit{xG}},
-    description={expected Goals}}
+\newglossaryentry{counterpress}
+{
+    name=counter-press,
+    description={the act of pressing immediately after losing possession, often within a few seconds of having lost the ball.}
+}
 
-\newglossaryentry{param:xt}{type=param,
-    name={\textit{xT}},
-    description={expected Threat}}
+\newglossaryentry{defstrat}
+{
+    name=defensive strategies,
+    description={these include overall approaches like deep-defending (maintaining a compact shape near the goal) and high-press (applying pressure high up the pitch).}
+}
 
-% --- Nomenclature --- %
-\newglossary*{nomen}{Nomenclature}
+\newglossaryentry{deftrans}
+{
+    name=defensive transition,
+    description={the phase in which a team shifts from attack to defence, often involving immediate pressing to regain possession.}
+}
 
-\newglossaryentry{nomen:pwin}{type=nomen,
-    name={$P_{\text{win}}$},
-    description={Probability of winning the ball}}
+\newglossaryentry{dropout}
+{
+    name=dropout,
+    description={optimise by randomly dropping out neurons during training.}
+}
 
-\newglossaryentry{nomen:pgoal}{type=nomen,
-    name={$P_{\text{goal/chance}}$},
-    description={Probability of conceding a goal-scoring chance}}
+\newglossaryentry{epoch}
+{
+    name=epoch,
+    description={one pass through the entire training dataset.}
+}
 
-\newglossaryentry{nomen:t}{type=nomen,
-    name={$t$},
-    description={Time variable used in pressing analysis}}
+\newglossaryentry{gegenpress}
+{
+    name=gegenpressing,
+    description={high-intensity pressing tactic that emphasises immediate pressure after losing possession}
+}
 
-\newglossaryentry{nomen:x}{type=nomen,
-    name={$x$},
-    description={Spatial location on the field (\(x\)-coordinate}}
-    
-\newglossaryentry{nomen:y}{type=nomen,
-    name={$y$},
-    description={Spatial location on the field (\(y\)-coordinate}}
+\newglossaryentry{xa}
+{
+    name=expected Assists (xA),
+    description={a measure of the likelihood that a pass will result in a goal.}
+}
 
-\newglossaryentry{nomen:w}{type=nomen,
-    name={$w$},
-    description={Weight or significance of pressing action}}
+\newglossaryentry{xg}
+{
+    name=expected Goals (xG),
+    description={a metric that quantifies the likelihood of a shot resulting in a goal, based on historical shot data.}
+}
 
-\newglossaryentry{nomen:mu}{type=nomen,
-    name={$\mu$},
-    description={Mean (average pressing intensity or event probability)}}
+\newglossaryentry{xt}
+{
+    name=expected Threat (xT),
+    description={a metric designed to quantify the danger posed by having possession of the ball in a specific location on the pitch (or resulting from a specific action).}
+}
 
-\newglossaryentry{nomen:sigma}{type=nomen,
-    name={$\sigma$},
-    description={Variance (to represent variability in pressing effectiveness)}}
-
-% --- Terminology --- %
-\newglossary*{term}{Terminology}
-
-\newglossaryentry{term:ballrec}{type=term,
-    name={ball recovery},
-    description={the act of regaining possession of the ball, typically following a press or interception.}}
-
-\newglossaryentry{term:batch}{type=term,
-    name={batch},
-    description={subset of training data used in one iteration.}}
-
-\newglossaryentry{term:compactness}{type=term,
-    name={compactness},
-    description={the degree to which a team stays close together, minimising space for opponents to exploit.}}
-
-\newglossaryentry{term:counter}{type=term,
-    name={counter-attacking},
-    description={a playing philosophy focused on quickly attacking after regaining possession.}}
-
-\newglossaryentry{term:counterpress}{type=term,
-    name={counter-press},
-    description={the act of pressing immediately after losing possession, often within a few seconds of having lost the ball.}}
-
-\newglossaryentry{term:defstrat}{type=term,
-    name={defensive strategies},
-    description={these include overall approaches like deep-defending (maintaining a compact shape near the goal) and high-press (applying pressure high up the pitch).}}
-
-\newglossaryentry{term:deftrans}{type=term,
-    name={defensive transition},
-    description={the phase in which a team shifts from attack to defence, often involving immediate pressing to regain possession.}}
-
-\newglossaryentry{term:dropout}{type=term,
-    name={dropout},
-    description={optimise by randomly dropping out neurons during training.}}
-
-\newglossaryentry{term:epoch}{type=term,
-    name={epoch},
-    description={one pass through the entire training dataset.}}
-
-\newglossaryentry{term:xa}{type=term,
-    name={expected Assists (xA)},
-    description={a measure of the likelihood that a pass will result in a goal.}}
-
-\newglossaryentry{term:xg}{type=term,
-    name={expected Goals (xG)},
-    description={a metric that quantifies the likelihood of a shot resulting in a goal, based on historical shot data.}}
-
-\newglossaryentry{term:xt}{type=term,
-    name={expected Threat (xT)},
-    description={a metric designed to quantify the danger posed by having possession of the ball in a specific location on the pitch (or resulting from a specific action).}}
-
-\newglossaryentry{term:gegenpress}{type=term,
-    name={gegenpressing},
-    description={high-intensity pressing tactic that emphasises immediate pressure after losing possession}}
